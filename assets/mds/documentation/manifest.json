@@ -1,0 +1,79 @@
+[
+    {
+        "id": "getting-started",
+        "title": "Getting Started",
+        "order": 1,
+        "items": [
+            {
+                "id": "intro",
+                "title": "Introduction",
+                "slug": "introduction",
+                "assetPath": "assets/mds/documentation/introduction.md",
+                "order": 1
+            },
+            {
+                "id": "why_use_md",
+                "title": "Why Use Markdown",
+                "slug": "why-use-markdown",
+                "assetPath": "assets/mds/documentation/why_markdown.md",
+                "order": 2
+            },
+            {
+                "id": "key_features_overview",
+                "title": "Key Features Overview",
+                "slug": "key-features-overview",
+                "assetPath": "assets/mds/documentation/key_features.md",
+                "order": 3
+            },
+            {
+                "id": "ui_elements",
+                "title": "UI Elements",
+                "slug": "ui_elements",
+                "assetPath": "assets/mds/documentation/element_demo.md",
+                "order": 4
+            }
+        ]
+    },
+    {
+        "id": "dummy_cat_a",
+        "title": "Dummy Category A",
+        "order": 2,
+        "items": [
+            {
+                "id": "dummy_content_a",
+                "title": "Dummy Content A",
+                "slug": "dummy_content_a",
+                "assetPath": "assets/mds/documentation/dummy_content_a.md",
+                "order": 1
+            },
+            {
+                "id": "dummy_content_b",
+                "title": "Dummy Content B",
+                "slug": "dummy_content_b",
+                "assetPath": "assets/mds/documentation/dummy_content_b.md",
+                "order": 2
+            },
+            {
+                "id": "dummy_content_c",
+                "title": "Dummy Content C",
+                "slug": "dummy_content_c",
+                "assetPath": "assets/mds/documentation/dummy_content_c.md",
+                "order": 3
+            },
+            {
+                "id": "dummy_content_d",
+                "title": "Dummy Content D",
+                "slug": "dummy_content_d",
+                "assetPath": "assets/mds/documentation/dummy_content_d.md",
+                "order": 4
+            },
+            {
+                "id": "dummy_content_e",
+                "title": "Dummy Content E",
+                "slug": "dummy_content_e",
+                "assetPath": "assets/mds/documentation/dummy_content_e.md",
+                "order": 5
+            }
+        ]
+    }
+]
