@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/configs/top_nav_bar_config.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/providers/sidebar_provider.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/top_nav_bar/top_nav_title.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/configs/top_nav_bar_config.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/providers/app_preferences_provider.dart';
+import 'package:flutkit_ademin/providers/sidebar_provider.dart';
+import 'package:flutkit_ademin/theme/theme_extensions/app_sidebar_theme.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/top_nav_bar/top_nav_title.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -33,16 +35,21 @@ class _TopNavBarState extends ConsumerState<TopNavBar> {
     final sidebarState = ref.watch(sidebarProvider);
     final bool isDesktop = mediaQueryData.size.width > kScreenWidthMd;
     final bool isMobile = mediaQueryData.size.width <= kScreenWidthMd;
+    final useLightSidebar = ref.watch(
+      appPreferencesProvider.select((state) => state.useLightSidebar),
+    );
+    final sidebarTheme = themeData.extension<AppSidebarTheme>()!;
     return Container(
       decoration: BoxDecoration(color: themeData.colorScheme.surfaceBright),
       child: Row(
         children: [
           //drawer
           if (widget.drawer != null)
-            Padding(
+            Container(
               padding: const EdgeInsetsDirectional.only(
                 start: kDefaultPadding / 2,
               ),
+
               child: IconButton(
                 icon: Icon(Icons.menu, color: kTextColor),
                 onPressed: () {
@@ -63,16 +70,19 @@ class _TopNavBarState extends ConsumerState<TopNavBar> {
               height: kTopNavHeight,
               decoration: BoxDecoration(
                 color: themeData.colorScheme.surfaceBright,
-                boxShadow: mediaQueryData.size.width > kScreenWidthLg
-                    ? [
-                        BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.1),
-                          spreadRadius: 0,
-                          blurRadius: 1,
-                          offset: Offset(0, 1),
+                border: BorderDirectional(
+                  start: widget.drawer != null
+                      ? BorderSide.none
+                      : BorderSide(
+                          color: useLightSidebar
+                              ? themeData.colorScheme.outline
+                              : sidebarTheme.backgroundColor,
                         ),
-                      ]
-                    : [],
+                  // bottom: BorderSide(
+                  //   color: Colors.black.withValues(alpha: 0.08),
+                  //   width: 1,
+                  // ),
+                ),
               ),
               child: Row(
                 children: [

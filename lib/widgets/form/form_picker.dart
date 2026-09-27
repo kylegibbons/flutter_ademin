@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/form/form_basic_element.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/form/form_basic_element.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart' as flutter_picker;
 import 'package:flex_color_picker/flex_color_picker.dart' as flex_picker;
 

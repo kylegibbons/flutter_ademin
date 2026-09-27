@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/dashboard/analytics/dashboard_analytics_data.dart';
-import 'package:flutter_ademin/widgets/base_ui/metric_card.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/dashboard/analytics/data/dashboard_analytics_data.dart';
+import 'package:flutkit_ademin/widgets/base_ui/metric_card.dart';
 
 // Dashboard Metrics
 

@@ -29,11 +29,10 @@ Do not:
 
 - move generic reusable widgets here if they belong in `lib/widgets/base_ui/`
 - duplicate existing base widgets just for one screen
-- turn this folder into a collection of large legacy demos
 
 ## Recommended Usage Order
 
-When generating or refactoring a screen:
+When generating a screen:
 
 1. Read `docs/ai_ui_rules.md`
 2. Use `docs/ai_prompt_template.md`

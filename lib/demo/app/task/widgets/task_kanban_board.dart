@@ -1,15 +1,15 @@
 import 'package:appflowy_board/appflowy_board.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/project/project_data.dart';
-import 'package:flutter_ademin/demo/app/project/project_models.dart';
-import 'package:flutter_ademin/demo/app/task/dialogs/add_task_form.dart';
-import 'package:flutter_ademin/demo/app/task/dialogs/view_task.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/badge.dart';
-import 'package:flutter_ademin/widgets/base_ui/image.dart';
-import 'package:flutter_ademin/widgets/base_ui/popup_menu.dart';
-import 'package:flutter_ademin/widgets/base_ui/progress.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/project/project_data.dart';
+import 'package:flutkit_ademin/demo/app/project/project_models.dart';
+import 'package:flutkit_ademin/demo/app/task/dialogs/add_task_form.dart';
+import 'package:flutkit_ademin/demo/app/task/dialogs/view_task.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/badge.dart';
+import 'package:flutkit_ademin/widgets/base_ui/image.dart';
+import 'package:flutkit_ademin/widgets/base_ui/popup_menu.dart';
+import 'package:flutkit_ademin/widgets/base_ui/progress.dart';
 import 'package:intl/intl.dart';
 
 class TaskKanbarBoard extends StatefulWidget {

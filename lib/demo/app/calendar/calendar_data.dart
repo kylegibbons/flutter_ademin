@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/demo/app/calendar/calendar_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/demo/app/calendar/calendar_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 /// An object to set the appointment collection data source to calendar, which

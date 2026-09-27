@@ -1,10 +1,10 @@
 // pop up menu
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/dropdown.dart';
-import 'package:flutter_ademin/widgets/base_ui/popup_menu.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/dropdown.dart';
+import 'package:flutkit_ademin/widgets/base_ui/popup_menu.dart';
 
 class PeriodPopUpMenu extends StatelessWidget {
   const PeriodPopUpMenu({super.key});

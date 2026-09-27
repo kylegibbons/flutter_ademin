@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/calendar/calendar_data.dart';
-import 'package:flutter_ademin/demo/app/calendar/calendar_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/form/form_basic_element.dart';
-import 'package:flutter_ademin/widgets/form/form_checkbox_radio.dart';
-import 'package:flutter_ademin/widgets/form/form_dropdown.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/calendar/calendar_data.dart';
+import 'package:flutkit_ademin/demo/app/calendar/calendar_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/form/form_basic_element.dart';
+import 'package:flutkit_ademin/widgets/form/form_checkbox_radio.dart';
+import 'package:flutkit_ademin/widgets/form/form_dropdown.dart';
 import 'package:intl/intl.dart';
 
 void showEditDialog(BuildContext context, {required Meeting meeting}) {
@@ -144,7 +144,7 @@ void showEditDialog(BuildContext context, {required Meeting meeting}) {
                               suffixIcon: Icons.event_outlined,
                             ),
                             const SizedBox(height: kDefaultPadding),
-                            AdaptiveWrap(
+                            ResponsiveWrap(
                               breakpoints: {
                                 kScreenWidthSm / 2: 1,
                                 kScreenWidthSm: 2,
@@ -237,7 +237,7 @@ void showEditDialog(BuildContext context, {required Meeting meeting}) {
                             ),
                             const SizedBox(height: kDefaultPadding),
                             if (!isAllDay)
-                              AdaptiveWrap(
+                              ResponsiveWrap(
                                 breakpoints: {
                                   kScreenWidthSm / 2: 1,
                                   kScreenWidthSm: 2,

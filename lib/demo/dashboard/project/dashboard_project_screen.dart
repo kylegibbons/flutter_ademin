@@ -1,23 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/dashboard/project/widgets/customer_satisfaction_gauge.dart';
-import 'package:flutter_ademin/demo/dashboard/project/widgets/project_hours_chart.dart';
-import 'package:flutter_ademin/demo/dashboard/project/widgets/project_metrics.dart';
-import 'package:flutter_ademin/demo/dashboard/project/widgets/project_overview.dart';
-import 'package:flutter_ademin/demo/dashboard/project/widgets/project_status_chart.dart';
-import 'package:flutter_ademin/demo/dashboard/project/widgets/schedule_calendar.dart';
-import 'package:flutter_ademin/demo/dashboard/project/widgets/ticket_response_time_chart.dart';
-import 'package:flutter_ademin/demo/dashboard/project/widgets/ticket_source_chart.dart';
-import 'package:flutter_ademin/demo/dashboard/project/widgets/ticket_status_chart.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/helper/page_title.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/breadcrumb.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/page_header.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_footer.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_master_layout.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/widgets/ai/ai_flyout/config/ai_flyout_config.dart';
+import 'package:flutkit_ademin/widgets/ai/ai_flyout/data_sources/ai_flyout_data_source.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/dashboard/project/data/dashboard_project_data.dart';
+import 'package:flutkit_ademin/demo/dashboard/project/data/dashboard_projects_ai_operator_data.dart';
+import 'package:flutkit_ademin/demo/dashboard/project/widgets/customer_satisfaction_gauge.dart';
+import 'package:flutkit_ademin/demo/dashboard/project/widgets/project_hours_chart.dart';
+import 'package:flutkit_ademin/demo/dashboard/project/widgets/project_metrics.dart';
+import 'package:flutkit_ademin/demo/dashboard/project/widgets/project_overview.dart';
+import 'package:flutkit_ademin/demo/dashboard/project/widgets/project_status_chart.dart';
+import 'package:flutkit_ademin/demo/dashboard/project/widgets/schedule_calendar.dart';
+import 'package:flutkit_ademin/demo/dashboard/project/widgets/ticket_response_time_chart.dart';
+import 'package:flutkit_ademin/demo/dashboard/project/widgets/ticket_source_chart.dart';
+import 'package:flutkit_ademin/demo/dashboard/project/widgets/ticket_status_chart.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/ai/ai_dasboard/ai_action_card.dart';
+import 'package:flutkit_ademin/widgets/ai/ai_dasboard/ai_insight_card.dart';
+import 'package:flutkit_ademin/widgets/helper/page_title.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/breadcrumb.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/page_header.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_footer.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_master_layout.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
 
 class DashboardProjectScreen extends StatefulWidget {
   const DashboardProjectScreen({super.key});
@@ -48,8 +54,18 @@ class _DashboardProjectScreenState extends State<DashboardProjectScreen> {
   @override
   Widget build(BuildContext context) {
     final lang = Lang.of(context);
+    final mockData = getProjectsAIOperatorData();
 
     return PortalMasterLayout(
+      aiFlyout: AIFlyoutConfig(
+        enabled: true,
+        dataSource: StaticDataSource(mockData),
+        drawerWidth: 640,
+        badgeCount: mockData.conversations.fold<int>(
+          0,
+          (sum, conversation) => sum + conversation.unreadCount,
+        ),
+      ),
       body: ListView(
         children: [
           // page header
@@ -65,7 +81,7 @@ class _DashboardProjectScreenState extends State<DashboardProjectScreen> {
             padding: EdgeInsets.all(kDefaultPadding),
             child: Column(
               children: [
-                AdaptiveWrap(
+                ResponsiveWrap(
                   breakpoints: {kScreenWidthLg: 1, kScreenWidthXl: 2},
                   columnRatios: [0.7, 0.3],
                   spacing: kDefaultPadding,
@@ -89,7 +105,7 @@ class _DashboardProjectScreenState extends State<DashboardProjectScreen> {
                 ),
                 SizedBox(height: kDefaultPadding),
 
-                AdaptiveWrap(
+                ResponsiveWrap(
                   breakpoints: {kScreenWidthLg: 1, kScreenWidthXl: 2},
                   columnRatios: [0.3, 0.7],
                   spacing: kDefaultPadding,
@@ -104,8 +120,33 @@ class _DashboardProjectScreenState extends State<DashboardProjectScreen> {
                 ),
 
                 SizedBox(height: kDefaultPadding),
+                ResponsiveWrap(
+                  breakpoints: {kScreenWidthLg: 1, kScreenWidthXl: 2},
+                  columnRatios: [0.6, 0.4],
+                  spacing: kDefaultPadding,
+                  runSpacing: kDefaultPadding,
+                  children: [
+                    // AI Insight
+                    AiInsightCard(
+                      insight: DummyAiInsights.getProjectDelayInsight(),
+                    ),
 
-                AdaptiveWrap(
+                    // AI Action
+                    SizedBox(
+                      height: 285,
+                      child: AIActionsCard(
+                        onViewAll: () {
+                          debugPrint('Navigate to View All');
+                        },
+                        actions: DummyAIActionData.aiActions,
+                      ),
+                    ),
+                  ],
+                ),
+
+                SizedBox(height: kDefaultPadding),
+
+                ResponsiveWrap(
                   breakpoints: {kScreenWidthLg: 1, kScreenWidthXl: 2},
                   columnRatios: [0.7, 0.3],
                   spacing: kDefaultPadding,
@@ -121,7 +162,7 @@ class _DashboardProjectScreenState extends State<DashboardProjectScreen> {
 
                 SizedBox(height: kDefaultPadding),
 
-                AdaptiveWrap(
+                ResponsiveWrap(
                   breakpoints: {kScreenWidthLg: 1, kScreenWidthXl: 2},
                   columnRatios: [0.3, 0.7],
                   spacing: kDefaultPadding,

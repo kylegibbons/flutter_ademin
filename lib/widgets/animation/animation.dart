@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
 
 // Blink transition switcher
 
@@ -30,7 +31,9 @@ class _BlinkTransitionSwitcherState extends State<BlinkTransitionSwitcher>
 
     _opacityAnim = TweenSequence<double>([
       TweenSequenceItem(
-          tween: Tween(begin: 1.0, end: 0.0), weight: 50), // tutup
+        tween: Tween(begin: 1.0, end: 0.0),
+        weight: 50,
+      ), // tutup
       TweenSequenceItem(tween: Tween(begin: 0.0, end: 1.0), weight: 50), // buka
     ]).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
 
@@ -54,10 +57,7 @@ class _BlinkTransitionSwitcherState extends State<BlinkTransitionSwitcher>
 
   @override
   Widget build(BuildContext context) {
-    return FadeTransition(
-      opacity: _opacityAnim,
-      child: widget.child,
-    );
+    return FadeTransition(opacity: _opacityAnim, child: widget.child);
   }
 }
 
@@ -94,8 +94,9 @@ class _HoverAnimatedWidgetState extends State<HoverAnimatedWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final elevation =
-        _isHovered ? widget.hoverElevation : widget.defaultElevation;
+    final elevation = _isHovered
+        ? widget.hoverElevation
+        : widget.defaultElevation;
     final yTransform = _isHovered ? widget.yOffset : 0.0;
 
     return MouseRegion(
@@ -108,11 +109,11 @@ class _HoverAnimatedWidgetState extends State<HoverAnimatedWidget> {
         child: Material(
           // Material widget is needed for elevation to be visible
           elevation: elevation,
-          color: Theme.of(context)
-              .colorScheme
-              .surface, // Or a specific color if needed
+          color: Theme.of(
+            context,
+          ).colorScheme.surface, // Or a specific color if needed
           borderRadius: BorderRadius.circular(
-            4,
+            defaultRadius,
           ), // Optional: if your child has rounded corners
           child: widget.child,
         ),

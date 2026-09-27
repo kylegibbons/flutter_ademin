@@ -10,6 +10,7 @@ class CustomExpansionTile extends StatefulWidget {
     this.collapsedBackgroundColor = Colors.transparent,
     this.hoverColor = Colors.transparent,
     this.onExpansionChanged,
+    this.expanded,
     this.shape,
   });
 
@@ -23,6 +24,7 @@ class CustomExpansionTile extends StatefulWidget {
   final Color collapsedBackgroundColor;
   final Color hoverColor;
   final ValueChanged<bool>? onExpansionChanged;
+  final bool? expanded;
   final ShapeBorder? shape;
 
   @override
@@ -35,11 +37,13 @@ class _CustomExpansionTileState extends State<CustomExpansionTile>
   late AnimationController _controller;
   late Animation<double> _heightFactor;
 
+  bool get _isControlled => widget.expanded != null;
+
   @override
   void initState() {
     super.initState();
-    _isExpanded = PageStorage.of(context).readState(context) as bool? ??
-        widget.initiallyExpanded;
+    final storedExpanded = PageStorage.of(context).readState(context) as bool?;
+    _isExpanded = widget.expanded ?? storedExpanded ?? widget.initiallyExpanded;
     _controller = AnimationController(
       duration: const Duration(milliseconds: 200),
       vsync: this,
@@ -52,14 +56,32 @@ class _CustomExpansionTileState extends State<CustomExpansionTile>
   }
 
   @override
+  void didUpdateWidget(covariant CustomExpansionTile oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    final expanded = widget.expanded;
+    if (expanded != null && expanded != _isExpanded) {
+      _setExpanded(
+        expanded,
+        notifyChanged: false,
+        persistToPageStorage: false,
+      );
+    }
+  }
+
+  @override
   void dispose() {
     _controller.dispose();
     super.dispose();
   }
 
-  void _handleTap() {
+  void _setExpanded(
+    bool expanded, {
+    required bool notifyChanged,
+    required bool persistToPageStorage,
+  }) {
     setState(() {
-      _isExpanded = !_isExpanded;
+      _isExpanded = expanded;
       if (_isExpanded) {
         _controller.forward();
       } else {
@@ -70,9 +92,27 @@ class _CustomExpansionTileState extends State<CustomExpansionTile>
           });
         });
       }
-      PageStorage.of(context).writeState(context, _isExpanded);
+      if (persistToPageStorage) {
+        PageStorage.of(context).writeState(context, _isExpanded);
+      }
     });
-    widget.onExpansionChanged?.call(_isExpanded);
+    if (notifyChanged) {
+      widget.onExpansionChanged?.call(_isExpanded);
+    }
+  }
+
+  void _handleTap() {
+    final expanded = !_isExpanded;
+    if (_isControlled) {
+      widget.onExpansionChanged?.call(expanded);
+      return;
+    }
+
+    _setExpanded(
+      expanded,
+      notifyChanged: true,
+      persistToPageStorage: true,
+    );
   }
 
 // Sebelumnya: Widget _buildChildren(BuildContext context, Widget child)

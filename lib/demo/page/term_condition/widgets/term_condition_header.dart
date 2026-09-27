@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/helper/general.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/helper/general.dart';
 
 class TermConditionHeader extends StatelessWidget {
   const TermConditionHeader({super.key, required this.lastUpdatedDate});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
 
 // animated icon (also support symbols)
 

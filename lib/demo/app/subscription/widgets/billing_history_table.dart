@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/subscription/subscription_data.dart';
-import 'package:flutter_ademin/demo/app/subscription/subscription_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/badge.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/table/table_style.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/subscription/subscription_data.dart';
+import 'package:flutkit_ademin/demo/app/subscription/subscription_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/badge.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/table/table_style.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
@@ -201,11 +201,7 @@ class _BillingHistoryTableState extends State<BillingHistoryTable> {
 // data source
 
 class BillingDataSource extends DataGridSource {
-  BillingDataSource({
-    required List<BillingModel> data,
-    required int rowsPerPage,
-  }) : _data = data,
-       _rowsPerPage = rowsPerPage {
+  BillingDataSource({required this._data, required this._rowsPerPage}) {
     _updatePaginatedData(0);
   }
 

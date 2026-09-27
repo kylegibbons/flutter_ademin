@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/widgets/base_ui/typography.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/widgets/base_ui/typography.dart';
 import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 
 class TermConditionContent extends StatefulWidget {

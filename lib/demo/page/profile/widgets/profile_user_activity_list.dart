@@ -1,8 +1,8 @@
 // user activity list
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/page/profile/profile_data.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/page/profile/profile_data.dart';
 
 class UserActivityList extends StatelessWidget {
   const UserActivityList({super.key, required this.acivityCount});

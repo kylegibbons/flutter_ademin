@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/documentation/documentation_models.dart';
-import 'package:flutter_ademin/demo/app/documentation/widget/documentation_header.dart';
-import 'package:flutter_ademin/demo/app/documentation/widget/documentation_markdown_area.dart';
-import 'package:flutter_ademin/demo/app/documentation/widget/documentation_sidebar.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/widgets/helper/page_title.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_master_layout.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/documentation/documentation_models.dart';
+import 'package:flutkit_ademin/demo/app/documentation/widget/documentation_header.dart';
+import 'package:flutkit_ademin/demo/app/documentation/widget/documentation_markdown_area.dart';
+import 'package:flutkit_ademin/demo/app/documentation/widget/documentation_sidebar.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/widgets/helper/page_title.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_master_layout.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
 
 class DocumentationScreen extends StatefulWidget {
   const DocumentationScreen({super.key});

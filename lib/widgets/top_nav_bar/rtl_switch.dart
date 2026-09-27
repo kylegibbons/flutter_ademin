@@ -1,8 +1,8 @@
 // RTL Switch
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/providers/app_preferences_provider.dart';
-import 'package:flutter_ademin/widgets/top_nav_bar/top_nav_button.dart';
+import 'package:flutkit_ademin/providers/app_preferences_provider.dart';
+import 'package:flutkit_ademin/widgets/top_nav_bar/top_nav_button.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class RTLSwitch extends ConsumerWidget {

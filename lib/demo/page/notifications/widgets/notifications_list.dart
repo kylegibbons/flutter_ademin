@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/page/notifications/widgets/notifications_filter_tab.dart';
-import 'package:flutter_ademin/demo/page/notifications/widgets/notifications_item.dart';
-import 'package:flutter_ademin/providers/notification_provider.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/popup_menu.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/page/notifications/widgets/notifications_filter_tab.dart';
+import 'package:flutkit_ademin/demo/page/notifications/widgets/notifications_item.dart';
+import 'package:flutkit_ademin/providers/notification_provider.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/popup_menu.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 

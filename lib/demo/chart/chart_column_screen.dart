@@ -1,18 +1,18 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/chart/chart.dart';
-import 'package:flutter_ademin/widgets/helper/page_title.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/breadcrumb.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_footer.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_master_layout.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
-import 'package:flutter_ademin/widgets/helper/show_code_card.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/chart/chart.dart';
+import 'package:flutkit_ademin/widgets/helper/page_title.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/breadcrumb.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_footer.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_master_layout.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/widgets/helper/show_code_card.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class ChartColumnScreen extends StatefulWidget {
@@ -339,6 +339,7 @@ class DefaultColumnChart extends StatelessWidget {
           name: 'Inflation',
           color: kSuccessColor,
           dataLabelSettings: DataLabelSettings(isVisible: true),
+          borderRadius: chartTopRadius,
         ),
       ],
     );
@@ -462,6 +463,7 @@ class ClusteredColumnChart extends StatelessWidget {
           color: kSuccessColor,
           dataLabelSettings: DataLabelSettings(isVisible: true),
           spacing: 0.2,
+          borderRadius: chartTopRadius,
         ),
         // Revenue series
         ColumnSeries<FinancialData, String>(
@@ -472,6 +474,7 @@ class ClusteredColumnChart extends StatelessWidget {
           color: kInfoColor,
           dataLabelSettings: DataLabelSettings(isVisible: true),
           spacing: 0.2,
+          borderRadius: chartTopRadius,
         ),
         // Free Cash Flow series
         ColumnSeries<FinancialData, String>(
@@ -482,6 +485,7 @@ class ClusteredColumnChart extends StatelessWidget {
           color: kWarningColor,
           dataLabelSettings: DataLabelSettings(isVisible: true),
           spacing: 0.2,
+          borderRadius: chartTopRadius,
         ),
       ],
     );
@@ -576,6 +580,7 @@ class StackedColumnChart extends StatelessWidget {
             labelAlignment: ChartDataLabelAlignment.middle,
             textStyle: TextStyle(fontSize: 10, color: Colors.white),
           ),
+          borderRadius: chartTopRadius,
         ),
       ],
     );
@@ -725,6 +730,7 @@ class MarkerColumnChart extends StatelessWidget {
             isVisible: false,
             textStyle: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
           ),
+          borderRadius: chartTopRadius,
         ),
         // Target data (Markers - ScatterSeries)
         ScatterSeries<MarketData, String>(
@@ -836,6 +842,7 @@ class _DynamicColumnChartState extends State<DynamicColumnChart> {
             isVisible: true,
             textStyle: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
           ),
+          borderRadius: chartTopRadius,
         ),
       ],
     );

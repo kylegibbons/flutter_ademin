@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/form/form_basic_element.dart';
-import 'package:flutter_ademin/widgets/helper/card_description.dart';
-import 'package:flutter_ademin/widgets/helper/page_title.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/breadcrumb.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_footer.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_master_layout.dart';
-import 'package:flutter_ademin/widgets/helper/show_code_card.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/form/form_basic_element.dart';
+import 'package:flutkit_ademin/widgets/helper/card_description.dart';
+import 'package:flutkit_ademin/widgets/helper/page_title.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/breadcrumb.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_footer.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_master_layout.dart';
+import 'package:flutkit_ademin/widgets/helper/show_code_card.dart';
 
 class FormBasicElement extends StatefulWidget {
   const FormBasicElement({super.key});
@@ -123,7 +123,7 @@ class _FormBasicElementState extends State<FormBasicElement> {
                   uiView: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      AdaptiveWrap(
+                      ResponsiveWrap(
                         columnRatios: [1 / 4, 1 / 4, 1 / 4, 1 / 4],
                         breakpoints: {
                           kScreenWidthSm: 1,
@@ -309,7 +309,7 @@ class _FormBasicElementState extends State<FormBasicElement> {
                       SizedBox(height: 1.5 * kDefaultPadding),
 
                       // Floating lable
-                      AdaptiveWrap(
+                      ResponsiveWrap(
                         columnRatios: [1 / 4, 1 / 4, 1 / 4, 1 / 4],
                         breakpoints: {
                           kScreenWidthSm: 1,
@@ -400,7 +400,7 @@ class _FormBasicElementState extends State<FormBasicElement> {
                             'Add <code>size: FormSize.small</code>, <code>size: FormSize.medium</code>, or <code>size: FormSize.large</code> argument to set form size.',
                       ),
                       SizedBox(height: 1.5 * kDefaultPadding),
-                      AdaptiveWrap(
+                      ResponsiveWrap(
                         columnRatios: [1 / 3, 1 / 3, 1 / 3],
                         breakpoints: {kScreenWidthSm: 1, kScreenWidthMd: 3},
                         children: [
@@ -648,7 +648,7 @@ CustomTextFormField(
                   uiView: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      AdaptiveWrap(
+                      ResponsiveWrap(
                         columnRatios: [1 / 4, 1 / 4, 1 / 4, 1 / 4],
                         breakpoints: {
                           kScreenWidthSm: 1,
@@ -813,7 +813,7 @@ CustomTextFormField(
                       SizedBox(height: 1.5 * kDefaultPadding),
 
                       /// Floating Label
-                      AdaptiveWrap(
+                      ResponsiveWrap(
                         columnRatios: [1 / 4, 1 / 4, 1 / 4, 1 / 4],
                         breakpoints: {
                           kScreenWidthSm: 1,

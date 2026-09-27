@@ -1,20 +1,20 @@
 import 'package:fleather/fleather.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/project/project_data.dart';
-import 'package:flutter_ademin/demo/app/project/project_models.dart';
-import 'package:flutter_ademin/theme/theme_extensions/app_fleather_theme.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/base_ui/badge.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/base_ui/image.dart';
-import 'package:flutter_ademin/widgets/base_ui/popup_menu.dart';
-import 'package:flutter_ademin/widgets/base_ui/progress.dart';
-import 'package:flutter_ademin/demo/app/task/dialogs/add_task_form.dart';
-import 'package:flutter_ademin/widgets/form/form_basic_element.dart';
-import 'package:flutter_ademin/widgets/form/form_checkbox_radio.dart';
-import 'package:flutter_ademin/widgets/form/form_file_upload.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/project/project_data.dart';
+import 'package:flutkit_ademin/demo/app/project/project_models.dart';
+import 'package:flutkit_ademin/theme/theme_extensions/app_fleather_theme.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/base_ui/badge.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/base_ui/image.dart';
+import 'package:flutkit_ademin/widgets/base_ui/popup_menu.dart';
+import 'package:flutkit_ademin/widgets/base_ui/progress.dart';
+import 'package:flutkit_ademin/demo/app/task/dialogs/add_task_form.dart';
+import 'package:flutkit_ademin/widgets/form/form_basic_element.dart';
+import 'package:flutkit_ademin/widgets/form/form_checkbox_radio.dart';
+import 'package:flutkit_ademin/widgets/form/form_file_upload.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -448,7 +448,7 @@ class _ViewTaskDialogState extends State<ViewTaskDialog> {
             child: SingleChildScrollView(
               child: Padding(
                 padding: const EdgeInsets.all(kDefaultPadding),
-                child: AdaptiveWrap(
+                child: ResponsiveWrap(
                   breakpoints: {kScreenWidthSm: 1, kScreenWidthMd: 2},
                   columnRatios: [0.7, 0.3],
                   children: [

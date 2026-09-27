@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
 
 class PricingTabSelector extends StatelessWidget {
   final int selectedIndex;
@@ -36,7 +35,7 @@ class PricingTabSelector extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 6, vertical: 2),
             decoration: BoxDecoration(
               color: kSuccessColor,
-              borderRadius: BorderRadius.circular(4),
+              borderRadius: BorderRadius.circular(defaultRadius),
             ),
             child: Text(
               "25% Off",
@@ -68,7 +67,7 @@ class PricingTabSelector extends StatelessWidget {
             ),
             decoration: BoxDecoration(
               color: selected ? kPrimaryColor : Colors.transparent,
-              borderRadius: BorderRadius.circular(4),
+              borderRadius: BorderRadius.circular(defaultRadius),
             ),
             child: Row(
               children: [
@@ -88,10 +87,18 @@ class PricingTabSelector extends StatelessWidget {
               ],
             ),
           ),
-          FaIcon(
-            FontAwesomeIcons.caretDown,
-            size: 16,
-            color: selected && showArrow ? kPrimaryColor : Colors.transparent,
+          // FaIcon(
+          //   FontAwesomeIcons.caretDown,
+          //   size: 16,
+          //   color: selected && showArrow ? kPrimaryColor : Colors.transparent,
+          // ),
+          Transform.translate(
+            offset: Offset(0, -8),
+            child: Icon(
+              Icons.arrow_drop_down,
+              size: 32,
+              color: selected && showArrow ? kPrimaryColor : Colors.transparent,
+            ),
           ),
         ],
       ),

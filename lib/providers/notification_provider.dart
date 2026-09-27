@@ -1,7 +1,7 @@
 // state management + filtering logic
 
-import 'package:flutter_ademin/demo/page/notifications/notifications_data.dart';
-import 'package:flutter_ademin/demo/page/notifications/notifications_models.dart';
+import 'package:flutkit_ademin/demo/page/notifications/notifications_data.dart';
+import 'package:flutkit_ademin/demo/page/notifications/notifications_models.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 enum NotificationFilter { all, unread, read }

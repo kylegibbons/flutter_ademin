@@ -1,10 +1,15 @@
+import 'package:flutkit_ademin/theme/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/configs/sidebar_menu_config.dart';
-import 'package:flutter_ademin/providers/sidebar_provider.dart';
-import 'package:flutter_ademin/theme/theme_extensions/app_sidebar_theme.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/sidebar.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/top_nav_bar.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/configs/sidebar_menu_config.dart';
+import 'package:flutkit_ademin/providers/app_preferences_provider.dart';
+import 'package:flutkit_ademin/providers/sidebar_provider.dart';
+import 'package:flutkit_ademin/theme/theme_extensions/app_sidebar_theme.dart';
+import 'package:flutkit_ademin/widgets/ai/ai_flyout/ai_flyout_host.dart';
+import 'package:flutkit_ademin/widgets/ai/ai_flyout/config/ai_flyout_config.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/sidebar.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/top_nav_bar.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class PortalMasterLayout extends ConsumerStatefulWidget {
@@ -18,6 +23,7 @@ class PortalMasterLayout extends ConsumerStatefulWidget {
   final FloatingActionButtonAnimator? floatingActionButtonAnimator;
   final List<Widget>? persistentFooterButtons;
   final Drawer? endDrawer;
+  final AIFlyoutConfig? aiFlyout;
 
   const PortalMasterLayout({
     // this.key,
@@ -31,11 +37,11 @@ class PortalMasterLayout extends ConsumerStatefulWidget {
     this.floatingActionButtonAnimator,
     this.persistentFooterButtons,
     this.endDrawer,
+    this.aiFlyout,
   });
 
   @override
-  ConsumerState<PortalMasterLayout> createState() =>
-      _PortalMasterLayoutState();
+  ConsumerState<PortalMasterLayout> createState() => _PortalMasterLayoutState();
 }
 
 class _PortalMasterLayoutState extends ConsumerState<PortalMasterLayout> {
@@ -59,24 +65,32 @@ class _PortalMasterLayoutState extends ConsumerState<PortalMasterLayout> {
     final sidebarState = ref.watch(sidebarProvider);
     final isSidebarHovered = ref.watch(sidebarHoverProvider);
 
-    return Scaffold(
-      appBar: _DynamicAppBar(
-        isBarVisible: _isBarVisible,
-        onTunePressed: _toggleBarVisibility,
-        mediaQueryData: mediaQueryData,
-        themeData: themeData,
+    final contentBody = _responsiveBody(
+      context,
+      sidebarState,
+      isSidebarHovered,
+    );
+
+    return SafeArea(
+      child: Scaffold(
+        appBar: _DynamicAppBar(
+          isBarVisible: _isBarVisible,
+          onTunePressed: _toggleBarVisibility,
+          mediaQueryData: mediaQueryData,
+          themeData: themeData,
+          drawer: drawer,
+        ),
+        key: widget.key,
         drawer: drawer,
+        endDrawer: widget.endDrawer,
+        drawerEnableOpenDragGesture: false,
+        onDrawerChanged: widget.onDrawerChanged,
+        body: AIFlyoutHost(config: widget.aiFlyout, child: contentBody),
+        floatingActionButton: widget.floatingActionButton,
+        floatingActionButtonLocation: widget.floatingActionButtonLocation,
+        floatingActionButtonAnimator: widget.floatingActionButtonAnimator,
+        persistentFooterButtons: widget.persistentFooterButtons,
       ),
-      key: widget.key,
-      drawer: drawer,
-      endDrawer: widget.endDrawer,
-      drawerEnableOpenDragGesture: false,
-      onDrawerChanged: widget.onDrawerChanged,
-      body: _responsiveBody(context, sidebarState, isSidebarHovered),
-      floatingActionButton: widget.floatingActionButton,
-      floatingActionButtonLocation: widget.floatingActionButtonLocation,
-      floatingActionButtonAnimator: widget.floatingActionButtonAnimator,
-      persistentFooterButtons: widget.persistentFooterButtons,
     );
   }
 
@@ -88,6 +102,11 @@ class _PortalMasterLayoutState extends ConsumerState<PortalMasterLayout> {
     if (MediaQuery.of(context).size.width <= kScreenWidthLg) {
       return widget.body;
     } else {
+      final themeData = Theme.of(context);
+      final useLightSidebar = ref.watch(
+        appPreferencesProvider.select((state) => state.useLightSidebar),
+      );
+      final sidebarTheme = themeData.extension<AppSidebarTheme>()!;
       return Row(
         children: [
           MouseRegion(
@@ -99,8 +118,7 @@ class _PortalMasterLayoutState extends ConsumerState<PortalMasterLayout> {
             },
             child: AnimatedContainer(
               duration: const Duration(milliseconds: 200),
-              width:
-                  isSidebarHovered || !sidebarState.isSidebarMinimized
+              width: isSidebarHovered || !sidebarState.isSidebarMinimized
                   ? Theme.of(context).extension<AppSidebarTheme>()!.sidebarWidth
                   : kSidebarWidthMin,
               child: _sidebar(context),
@@ -108,7 +126,20 @@ class _PortalMasterLayoutState extends ConsumerState<PortalMasterLayout> {
           ),
 
           //content body
-          Expanded(child: widget.body),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                border: BorderDirectional(
+                  start: BorderSide(
+                    color: useLightSidebar
+                        ? themeData.colorScheme.outline
+                        : sidebarTheme.backgroundColor,
+                  ),
+                ),
+              ),
+              child: widget.body,
+            ),
+          ),
         ],
       );
     }
@@ -152,27 +183,41 @@ class _DynamicAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     final bool isMobile = mediaQueryData.size.width <= kScreenWidthMd;
-    final double topPadding = mediaQueryData.padding.top;
-    return AnimatedSize(
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-      child: Padding(
-        padding: EdgeInsets.only(top: topPadding),
-        child: Column(
-          children: [
-            Builder(
-              builder: (BuildContext context) {
-                return TopNavBar(
-                  drawer: drawer,
-                  onTunePressed: onTunePressed,
-                  isSecondaryBarVisible: isBarVisible,
-                );
-              },
-            ),
+    final isDark = themeData.brightness == Brightness.dark;
 
-            // SECONDARY TOP NAV BAR (Conditionally rendered)
-            if (isMobile && isBarVisible) SecondaryTopNavBar(),
-          ],
+    final overlayStyle = SystemUiOverlayStyle(
+      statusBarColor: isDark
+          ? kPrimaryColorDark // kPrimaryColorDark
+          : kPrimaryColor, // kPrimaryColor
+      statusBarIconBrightness: isDark ? Brightness.light : Brightness.light,
+      statusBarBrightness: isDark ? Brightness.light : Brightness.dark,
+    );
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: overlayStyle,
+      child: Material(
+        color:
+            themeData.appBarTheme.backgroundColor ??
+            themeData.colorScheme.surface,
+
+        child: AnimatedSize(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+          child: Column(
+            children: [
+              Builder(
+                builder: (BuildContext context) {
+                  return TopNavBar(
+                    drawer: drawer,
+                    onTunePressed: onTunePressed,
+                    isSecondaryBarVisible: isBarVisible,
+                  );
+                },
+              ),
+
+              // SECONDARY TOP NAV BAR (Conditionally rendered)
+              if (isMobile && isBarVisible) SecondaryTopNavBar(),
+            ],
+          ),
         ),
       ),
     );

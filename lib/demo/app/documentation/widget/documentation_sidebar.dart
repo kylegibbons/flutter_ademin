@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/documentation/documentation_models.dart';
-import 'package:flutter_ademin/demo/app/documentation/widget/documentation_category_group.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/documentation/documentation_models.dart';
+import 'package:flutkit_ademin/demo/app/documentation/widget/documentation_category_group.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
 
 class DocumentationSidebar extends StatelessWidget {
   final List<DocCategory> categories;

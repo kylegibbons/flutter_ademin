@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // social login section

@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/base_ui/carousel.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/base_ui/carousel.dart';
 
 class HeroSlider extends StatelessWidget {
   const HeroSlider({super.key});
@@ -20,7 +20,7 @@ class HeroSlider extends StatelessWidget {
           color: themeData.colorScheme.primaryContainer,
           borderRadius: BorderRadius.circular(defaultRadius),
         ),
-        child: AdaptiveWrap(
+        child: ResponsiveWrap(
           breakpoints: {kScreenWidthLg: 1, kScreenWidthXl: 2},
           columnRatios: [0.5, 0.5],
           spacing: kDefaultPadding,

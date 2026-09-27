@@ -1,4 +1,4 @@
-import 'package:flutter_ademin/demo/app/invoice/invoice_models.dart';
+import 'package:flutkit_ademin/demo/app/invoice/invoice_models.dart';
 
 final InvoiceModel mockInvoice = InvoiceModel(
   invoiceNo: "#INV-2025-07-001",

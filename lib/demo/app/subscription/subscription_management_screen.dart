@@ -2,27 +2,27 @@
 
 import 'package:dotlottie_loader/dotlottie_loader.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/animation/animation.dart';
-import 'package:flutter_ademin/widgets/base_ui/badge.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/base_ui/dialog.dart';
-import 'package:flutter_ademin/widgets/base_ui/dropdown.dart';
-import 'package:flutter_ademin/widgets/base_ui/toast.dart';
-import 'package:flutter_ademin/widgets/form/form_basic_element.dart';
-import 'package:flutter_ademin/widgets/form/form_checkbox_radio.dart';
-import 'package:flutter_ademin/widgets/form/form_dropdown.dart';
-import 'package:flutter_ademin/widgets/form/form_input_mask.dart';
-import 'package:flutter_ademin/widgets/helper/page_title.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/breadcrumb.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_footer.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_master_layout.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
-import 'package:flutter_ademin/widgets/table/table_style.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/animation/animation.dart';
+import 'package:flutkit_ademin/widgets/base_ui/badge.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/base_ui/dialog.dart';
+import 'package:flutkit_ademin/widgets/base_ui/dropdown.dart';
+import 'package:flutkit_ademin/widgets/base_ui/toast.dart';
+import 'package:flutkit_ademin/widgets/form/form_basic_element.dart';
+import 'package:flutkit_ademin/widgets/form/form_checkbox_radio.dart';
+import 'package:flutkit_ademin/widgets/form/form_dropdown.dart';
+import 'package:flutkit_ademin/widgets/form/form_input_mask.dart';
+import 'package:flutkit_ademin/widgets/helper/page_title.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/breadcrumb.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_footer.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_master_layout.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/widgets/table/table_style.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
@@ -303,7 +303,7 @@ class SubscriptionsMetricsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final metrics = SubscriptionMetrics.fromSubscriptions(mockSubscriptions);
 
-    return AdaptiveWrap(
+    return ResponsiveWrap(
       breakpoints: {kScreenWidthMd: 1, kScreenWidthLg: 2, kScreenWidthXl: 4},
       columnRatios: const [0.25, 0.25, 0.25, 0.25],
       spacing: kDefaultPadding,
@@ -2081,7 +2081,7 @@ class _AddSubscriptionDialogState extends State<AddSubscriptionDialog> {
 
             FormLabel(text: "Pricing Scheme", showRequired: false),
             SizedBox(height: kDefaultPadding / 2),
-            AdaptiveWrap(
+            ResponsiveWrap(
               breakpoints: {kScreenWidthSm: 1, kScreenWidthMd: 3},
               columnRatios: [1 / 3, 1 / 3, 1 / 3],
               children: [
@@ -2387,7 +2387,7 @@ class _EditSubscriptionDialogState extends State<EditSubscriptionDialog> {
 
             FormLabel(text: "Pricing Scheme", showRequired: false),
             SizedBox(height: kDefaultPadding / 2),
-            AdaptiveWrap(
+            ResponsiveWrap(
               breakpoints: {kScreenWidthSm: 1, kScreenWidthMd: 3},
               columnRatios: [1 / 3, 1 / 3, 1 / 3],
               children: [

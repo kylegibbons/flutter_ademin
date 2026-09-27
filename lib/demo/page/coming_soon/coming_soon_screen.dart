@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/form/form_basic_element.dart';
-import 'package:flutter_ademin/widgets/public_master_layout/public_footer.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/form/form_basic_element.dart';
+import 'package:flutkit_ademin/widgets/public_master_layout/public_footer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ComingSoonScreen extends StatefulWidget {

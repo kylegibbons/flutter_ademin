@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/page/profile/widgets/profile_documents_table.dart';
-import 'package:flutter_ademin/demo/page/search/widgets/search_result_all.dart';
-import 'package:flutter_ademin/demo/page/search/widgets/search_result_header.dart';
-import 'package:flutter_ademin/demo/page/search/widgets/search_result_image.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/helper/page_title.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/breadcrumb.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/page_header.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_footer.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_master_layout.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
-import 'package:flutter_ademin/widgets/base_ui/tab.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/page/profile/widgets/profile_documents_table.dart';
+import 'package:flutkit_ademin/demo/page/search/widgets/search_result_all.dart';
+import 'package:flutkit_ademin/demo/page/search/widgets/search_result_header.dart';
+import 'package:flutkit_ademin/demo/page/search/widgets/search_result_image.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/helper/page_title.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/breadcrumb.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/page_header.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_footer.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_master_layout.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/widgets/base_ui/tab.dart';
 
 class SearchResultScreen extends StatefulWidget {
   const SearchResultScreen({super.key});

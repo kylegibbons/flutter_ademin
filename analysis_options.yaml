@@ -1,12 +1,4 @@
-include: package:flutter_lints/flutter.yaml
 analyzer:
   errors:
     strict_top_level_inference: ignore
-  exclude:
-    - build/**
-    - ios/**
-    - android/**
-    - web/**
-    - windows/**
-    - macos/**
-    - linux/**
+include: package:flutter_lints/flutter.yaml

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/crypto/crypto_data.dart';
-import 'package:flutter_ademin/demo/app/crypto/crypto_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/form/form_dropdown.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/crypto/crypto_data.dart';
+import 'package:flutkit_ademin/demo/app/crypto/crypto_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/form/form_dropdown.dart';
 
 // deposit_dialog.dart
 
@@ -73,7 +73,7 @@ class _DepositDialogState extends State<DepositDialog> {
           const SizedBox(height: kDefaultPadding),
 
           // action
-          AdaptiveWrap(
+          ResponsiveWrap(
             spacing: kDefaultPadding,
             runSpacing: kDefaultPadding,
             breakpoints: {kScreenWidthSm / 2: 1, kScreenWidthSm: 2},

@@ -16,6 +16,8 @@ class AppSettings {
   /// Assets
   // logo path must be in assets/images/ folder
   static const String logoPath = "assets/images/logo.png";
+  static const String logoDarkPath =
+      "assets/images/logo_dark.png"; // for light background
   static const String logoMinPath = "assets/images/logo_min.png";
 
   /// Theme
@@ -24,6 +26,9 @@ class AppSettings {
 
   // index of default palette (0 = primary/default, 1 = Deep Blue, 2 = Purple, etc. Check lib\data\top_nav_bar_data.dart)
   static const int defaultThemeIndex = 0;
+
+  // choose whether sidebar should use a light surface background instead of the drawer color
+  static const bool defaultUseLightSidebar = false;
 
   // enable or disable theme selector
   static const bool enableThemeSelector = true;

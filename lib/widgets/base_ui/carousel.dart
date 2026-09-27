@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
 
 class CustomCarousel extends StatefulWidget {
   final List<Widget> pages;

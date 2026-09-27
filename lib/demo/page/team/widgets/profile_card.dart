@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/page/team/team_models.dart';
-import 'package:flutter_ademin/demo/page/team/widgets/popup_menu_button.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/page/team/team_models.dart';
+import 'package:flutkit_ademin/demo/page/team/widgets/popup_menu_button.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
 
 class ProfileCard extends StatelessWidget {
   final UserProfile profile;

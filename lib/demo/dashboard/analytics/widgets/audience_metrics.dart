@@ -1,13 +1,13 @@
 // Audience Metrics
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/dashboard/analytics/dashboard_analytics_data.dart';
-import 'package:flutter_ademin/demo/dashboard/analytics/dashboard_analytics_models.dart';
-import 'package:flutter_ademin/demo/dashboard/analytics/widgets/popup_menu_button.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/chart/chart.dart';
-import 'package:flutter_ademin/widgets/helper/card_header.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/dashboard/analytics/data/dashboard_analytics_data.dart';
+import 'package:flutkit_ademin/demo/dashboard/analytics/dashboard_analytics_models.dart';
+import 'package:flutkit_ademin/demo/dashboard/analytics/widgets/popup_menu_button.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/chart/chart.dart';
+import 'package:flutkit_ademin/widgets/helper/card_header.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -140,7 +140,7 @@ class AudienceSummaryRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AdaptiveWrap(
+    return ResponsiveWrap(
       breakpoints: {kScreenWidthSm / 2: 2, kScreenWidthSm: 4},
       columnRatios: const [
         0.25, // set column A as 25% width

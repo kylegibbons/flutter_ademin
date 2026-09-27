@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/base_ui/metric_card.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/base_ui/metric_card.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // ecommerce metrics card
@@ -12,15 +12,14 @@ class EcommerceDashboardMetrics extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AdaptiveWrap(
+    return ResponsiveWrap(
       breakpoints: {
         kScreenWidthSm: 1,
-        kScreenWidthMd: 2,
-        kScreenWidthLg: 3,
+        kScreenWidthLg: 2,
         kScreenWidthXl: 4,
-        kScreenWidthXxl: 5,
+
       },
-      columnRatios: [1 / 5, 1 / 5, 1 / 5, 1 / 5, 1 / 5],
+      columnRatios: [1 / 4, 1 / 4, 1 / 4, 1 / 4,],
       children: [
         LinkMetricCard(
           title: 'Total Revenue',
@@ -46,14 +45,7 @@ class EcommerceDashboardMetrics extends StatelessWidget {
           icon: FontAwesomeIcons.user,
           iconBgColor: kWarningColor,
         ),
-        LinkMetricCard(
-          title: 'Repeat Order',
-          value: '35.89%',
-          changePercent: -4.13,
-          actionText: 'See details',
-          icon: FontAwesomeIcons.firstOrder,
-          iconBgColor: kErrorColor,
-        ),
+        
         LinkMetricCard(
           title: 'Conversion Rate',
           value: '15.89%',

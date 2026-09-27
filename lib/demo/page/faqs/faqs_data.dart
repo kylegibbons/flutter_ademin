@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/demo/page/faqs/faqs_models.dart';
+import 'package:flutkit_ademin/demo/page/faqs/faqs_models.dart';
 
 final List<FaqCategory> mockFaqCategories = [
   FaqCategory(

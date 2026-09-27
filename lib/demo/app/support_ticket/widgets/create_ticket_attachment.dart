@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/widgets/helper/card_header.dart';
-import 'package:flutter_ademin/widgets/form/form_file_upload.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/widgets/helper/card_header.dart';
+import 'package:flutkit_ademin/widgets/form/form_file_upload.dart';
 
 class CreateTicketAttachment extends StatefulWidget {
   final Function(List<String>) onFilesChanged;

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/helper/page_title.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/breadcrumb.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/page_header.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_footer.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_master_layout.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/helper/page_title.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/breadcrumb.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/page_header.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_footer.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_master_layout.dart';
 
 import 'widgets/audience_metrics_chart.dart';
 import 'widgets/audience_metrics_targets.dart';
@@ -60,7 +60,7 @@ class _AiReferenceScreenState extends State<AiReferenceScreen> {
             padding: const EdgeInsets.all(kDefaultPadding),
             child: Column(
               children: [
-                AdaptiveWrap(
+                ResponsiveWrap(
                   breakpoints: {kScreenWidthLg: 1, kScreenWidthXl: 2},
                   columnRatios: const [0.6, 0.4],
                   spacing: kDefaultPadding,
@@ -68,7 +68,7 @@ class _AiReferenceScreenState extends State<AiReferenceScreen> {
                   children: const [LiveUsersHeatMap(), _BannerMetricColumn()],
                 ),
                 const SizedBox(height: kDefaultPadding),
-                AdaptiveWrap(
+                ResponsiveWrap(
                   breakpoints: {kScreenWidthLg: 1, kScreenWidthXl: 2},
                   columnRatios: const [0.6, 0.4],
                   spacing: kDefaultPadding,

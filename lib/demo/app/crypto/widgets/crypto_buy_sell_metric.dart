@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/crypto/crypto_data.dart';
-import 'package:flutter_ademin/demo/app/crypto/crypto_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/animation/animated_icon.dart';
-import 'package:flutter_ademin/widgets/animation/animation.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/crypto/crypto_data.dart';
+import 'package:flutkit_ademin/demo/app/crypto/crypto_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/animation/animated_icon.dart';
+import 'package:flutkit_ademin/widgets/animation/animation.dart';
 
 class CryptoBuySellMetrics extends StatelessWidget {
   const CryptoBuySellMetrics({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return AdaptiveWrap(
+    return ResponsiveWrap(
       breakpoints: {kScreenWidthSm: 1, kScreenWidthMd: 2, kScreenWidthLg: 4},
       runSpacing: kDefaultPadding,
       spacing: kDefaultPadding,

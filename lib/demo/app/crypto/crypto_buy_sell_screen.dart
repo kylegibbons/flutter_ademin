@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/crypto/widgets/crypto_buy_sell_market_graph.dart';
-import 'package:flutter_ademin/demo/app/crypto/widgets/crypto_buy_sell_market_table.dart';
-import 'package:flutter_ademin/demo/app/crypto/widgets/crypto_buy_sell_metric.dart';
-import 'package:flutter_ademin/demo/app/crypto/widgets/crypto_buy_sell_trade.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/helper/page_title.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/breadcrumb.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/page_header.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_footer.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_master_layout.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/crypto/widgets/crypto_buy_sell_market_graph.dart';
+import 'package:flutkit_ademin/demo/app/crypto/widgets/crypto_buy_sell_market_table.dart';
+import 'package:flutkit_ademin/demo/app/crypto/widgets/crypto_buy_sell_metric.dart';
+import 'package:flutkit_ademin/demo/app/crypto/widgets/crypto_buy_sell_trade.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/helper/page_title.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/breadcrumb.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/page_header.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_footer.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_master_layout.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
 
 class CryptoBuySellScreen extends StatefulWidget {
   const CryptoBuySellScreen({super.key});
@@ -65,7 +65,7 @@ class _CryptoBuySellScreenState extends State<CryptoBuySellScreen> {
 
                 SizedBox(height: kDefaultPadding),
 
-                AdaptiveWrap(
+                ResponsiveWrap(
                   spacing: kDefaultPadding,
                   runSpacing: kDefaultPadding,
                   breakpoints: {kScreenWidthLg: 1, kScreenWidthXl: 2},

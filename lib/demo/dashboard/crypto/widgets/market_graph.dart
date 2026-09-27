@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/dashboard/analytics/widgets/popup_menu_button.dart';
-import 'package:flutter_ademin/demo/dashboard/crypto/dashboard_crypto_data.dart';
-import 'package:flutter_ademin/demo/dashboard/crypto/dashboard_crypto_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/helper/card_header.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/dashboard/analytics/widgets/popup_menu_button.dart';
+import 'package:flutkit_ademin/demo/dashboard/crypto/data/dashboard_crypto_data.dart';
+import 'package:flutkit_ademin/demo/dashboard/crypto/dashboard_crypto_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/helper/card_header.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -48,7 +48,7 @@ class _MarketGraphWidgetState extends State<MarketGraphWidget> {
                 horizontal: kDefaultPadding,
                 vertical: 1.5 * kDefaultPadding,
               ),
-              child: AdaptiveWrap(
+              child: ResponsiveWrap(
                 breakpoints: {
                   kScreenWidthSm / 2: 1, // set breakpoint for 1 column layout,
                   kScreenWidthSm: 2, // set breakpoint for 2 column layout

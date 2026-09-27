@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/providers/sidebar_provider.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/providers/app_preferences_provider.dart';
+import 'package:flutkit_ademin/providers/sidebar_provider.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -32,6 +33,11 @@ class _BuyAdeminButtonState extends ConsumerState<BuyAdeminButton> {
     final isSidebarHovered = ref.watch(sidebarHoverProvider);
     final bool shouldExpand =
         !sidebarState.isSidebarMinimized || isSidebarHovered;
+    final useLightSidebar = ref.watch(
+      appPreferencesProvider.select((state) => state.useLightSidebar),
+    );
+
+    final themeData = Theme.of(context);
 
     // KEY logic: Delay content swapping until width is appropriate
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -51,16 +57,24 @@ class _BuyAdeminButtonState extends ConsumerState<BuyAdeminButton> {
       child: _showFullContent
           ? FancyIconButton(
               kText: 'Buy Ademin',
-              kTextColor: Colors.white,
-              bgColor: Colors.white.withValues(alpha: 0.1),
+              kTextColor: useLightSidebar
+                  ? themeData.colorScheme.onSurface
+                  : Colors.white,
+              bgColor: useLightSidebar
+                  ? themeData.colorScheme.onSurface.withValues(alpha: 0.1)
+                  : Colors.white.withValues(alpha: 0.1),
               kLeadingIcon: Icons.workspace_premium_outlined,
               isFullWidth: true,
               onPressed: _openAdemin,
             )
           : CustomIconButton(
               icon: Icons.workspace_premium_outlined,
-              iconColor: Colors.white,
-              buttonColor: Colors.white.withValues(alpha: 0.1),
+              iconColor: useLightSidebar
+                  ? themeData.colorScheme.onSurface
+                  : Colors.white,
+              buttonColor: useLightSidebar
+                  ? themeData.colorScheme.onSurface.withValues(alpha: 0.1)
+                  : Colors.white.withValues(alpha: 0.1),
               onTap: _openAdemin,
             ),
     );

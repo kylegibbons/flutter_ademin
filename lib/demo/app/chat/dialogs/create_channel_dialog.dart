@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/chat/chat_data.dart';
-import 'package:flutter_ademin/demo/app/chat/chat_model.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/form/form_basic_element.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/chat/chat_data.dart';
+import 'package:flutkit_ademin/demo/app/chat/chat_model.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/form/form_basic_element.dart';
 
 Future<ChatSelection?> showCreateChannelDialog(BuildContext context) async {
   final TextEditingController nameController = TextEditingController();

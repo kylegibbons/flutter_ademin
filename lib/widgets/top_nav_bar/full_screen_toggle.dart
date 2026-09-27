@@ -1,8 +1,8 @@
-//full screen button
-
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/widgets/top_nav_bar/top_nav_button.dart';
+import 'package:flutkit_ademin/widgets/top_nav_bar/top_nav_button.dart';
 import 'package:fullscreen_window/fullscreen_window.dart';
+
+//full screen button
 
 class FullScreenButton extends StatefulWidget {
   const FullScreenButton({super.key});

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/providers/app_preferences_provider.dart';
-import 'package:flutter_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/providers/app_preferences_provider.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/form/form_checkbox_radio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// THEME SELECTOR BUTTON ///
@@ -11,17 +12,17 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class Palette {
   final String name;
   final Color color;
-
   const Palette(this.name, this.color);
 }
 
 // Theme pallete mockup data
 const List<Palette> palettes = [
-  Palette('Default Blue', Color(0xFF313F6C)),
-  Palette('Deep Blue', Color(0xFF303e8a)),
-  Palette('Purple', Color(0xFF463171)),
-  Palette('Indigo', Color(0xFF520DC2)),
-  Palette('Cyan', Color(0xFF087990)),
+  Palette('Navy Slate', Color(0xFF313F6C)),
+  Palette('Dark Indigo', Color(0xFF303e8a)),
+  Palette('Dark Violet', Color(0xFF463171)),
+  Palette('Electric Violet', Color(0xFF520DC2)),
+  Palette('Ocean Blue', Color(0xFF087990)),
+  Palette('Navy Blue', Color(0xFF13509B)),
 ];
 
 // Theme Selector Button UI View
@@ -48,23 +49,64 @@ class ThemeSelectorButton extends ConsumerWidget {
       color: theme.colorScheme.surface,
       popUpAnimationStyle: AnimationStyle.noAnimation,
       onSelected: (idx) {
-        controller.setAppThemeIndex(idx);
-        // force build all tree?
+        if (idx >= 0) {
+          controller.setAppThemeIndex(idx);
+        }
       },
-      itemBuilder: (context) => List<PopupMenuEntry<int>>.generate(
-        palettes.length,
-        (i) => PopupMenuItem(
-          value: i,
-          child: Row(
-            children: [
-              _swatch(palettes[i].color),
-              const SizedBox(width: kDefaultPadding / 2),
-              Expanded(child: Text(palettes[i].name)),
-              if (currentIndex == i) Icon(Icons.check),
-            ],
+      itemBuilder: (context) {
+        final items = List<PopupMenuEntry<int>>.generate(
+          palettes.length,
+          (i) => PopupMenuItem(
+            value: i,
+            child: Row(
+              children: [
+                _swatch(palettes[i].color),
+                const SizedBox(width: kDefaultPadding / 2),
+                Expanded(child: Text(palettes[i].name)),
+                if (currentIndex == i) Icon(Icons.check),
+              ],
+            ),
           ),
-        ),
-      ),
+        );
+
+        items.add(
+          PopupMenuItem<int>(
+            enabled: false,
+            child: Consumer(
+              builder: (context, ref, _) {
+                final useLightSidebarInMenu = ref.watch(
+                  appPreferencesProvider.select((s) => s.useLightSidebar),
+                );
+                final controllerInMenu = ref.read(
+                  appPreferencesProvider.notifier,
+                );
+
+                return Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        'Use light sidebar',
+                        style: TextStyle(color: theme.colorScheme.onSurface),
+                      ),
+                    ),
+                    CustomSwitch(
+                      activeColor: kSecondaryColor,
+                      value: useLightSidebarInMenu,
+                      onChanged: (value) {
+                        controllerInMenu.setUseLightSidebarAsync(
+                          useLightSidebar: value,
+                        );
+                      },
+                    ),
+                  ],
+                );
+              },
+            ),
+          ),
+        );
+
+        return items;
+      },
       child: Material(
         type: MaterialType.transparency,
         child: InkWell(
@@ -91,7 +133,7 @@ class ThemeSelectorButton extends ConsumerWidget {
       height: mediumHeight,
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(2),
+        borderRadius: BorderRadius.circular(defaultRadius),
       ),
     );
   }

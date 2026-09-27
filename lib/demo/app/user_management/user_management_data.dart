@@ -1,6 +1,6 @@
 // user mock up data
 
-import 'package:flutter_ademin/demo/app/user_management/user_management_models.dart';
+import 'package:flutkit_ademin/demo/app/user_management/user_management_models.dart';
 
 final List<UserModel> mockUsers = [
   UserModel(

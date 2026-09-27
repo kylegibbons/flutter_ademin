@@ -1,4 +1,4 @@
-import 'package:flutter_ademin/demo/app/email/email_models.dart';
+import 'package:flutkit_ademin/demo/app/email/email_models.dart';
 
 List<Email> buildDummyEmails() {
   return [

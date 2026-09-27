@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/helper/card_example.dart';
-import 'package:flutter_ademin/widgets/helper/page_title.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/page_header.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/breadcrumb.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_footer.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_master_layout.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/helper/card_example.dart';
+import 'package:flutkit_ademin/widgets/helper/page_title.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/custom_fab_location.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/page_header.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/breadcrumb.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_footer.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_master_layout.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
 
 class StarterPageScreen extends StatefulWidget {
   const StarterPageScreen({super.key});
@@ -79,13 +80,12 @@ class _StarterPageScreenState extends State<StarterPageScreen> {
             ],
           ),
 
-          //content
+          // Demo Content - replace this with your content
           Padding(
             padding: const EdgeInsets.all(kDefaultPadding),
             child: Column(
               children: [
-                // Demo Content - replace this with your content
-                AdaptiveWrap(
+                ResponsiveWrap(
                   breakpoints: {
                     576: 1,
                     // set breakpoint for 1 column layout, will be triggered when width constraint less than 576 px
@@ -106,7 +106,7 @@ class _StarterPageScreenState extends State<StarterPageScreen> {
 
                 SizedBox(height: kDefaultPadding),
 
-                AdaptiveWrap(
+                ResponsiveWrap(
                   breakpoints: {
                     kScreenWidthSm: 1, // set breakpoint for 1 column layout,
                     kScreenWidthMd: 2, // set breakpoint for 2 column layout
@@ -129,7 +129,7 @@ class _StarterPageScreenState extends State<StarterPageScreen> {
 
                 SizedBox(height: kDefaultPadding),
 
-                AdaptiveWrap(
+                ResponsiveWrap(
                   breakpoints: {
                     kScreenWidthSm: 1, // set breakpoint for 1 column layout,
                     kScreenWidthLg: 2, // set breakpoint for 2 column layout
@@ -153,7 +153,7 @@ class _StarterPageScreenState extends State<StarterPageScreen> {
                 ),
                 SizedBox(height: kDefaultPadding),
 
-                AdaptiveWrap(
+                ResponsiveWrap(
                   breakpoints: {
                     kScreenWidthMd: 1, // set breakpoint for 1 column layout,
                     kScreenWidthLg: 2, // set breakpoint for 2 column layout
@@ -169,7 +169,7 @@ class _StarterPageScreenState extends State<StarterPageScreen> {
                     CardExample(),
 
                     // Column B & C
-                    AdaptiveWrap(
+                    ResponsiveWrap(
                       breakpoints: {kScreenWidthSm: 2},
                       columnRatios: const [
                         0.3, // set column B as 30%
@@ -208,6 +208,10 @@ class _StarterPageScreenState extends State<StarterPageScreen> {
               ),
             )
           : null,
+      floatingActionButtonLocation: CustomFabLocation(
+        paddingRight: kDefaultPadding,
+        paddingBottom: kDefaultPadding,
+      ),
     );
   }
 }

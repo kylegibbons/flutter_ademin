@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/widgets/base_ui/metric_card.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/widgets/base_ui/metric_card.dart';
 
 class DashboardMetrics extends StatelessWidget {
   const DashboardMetrics({super.key});

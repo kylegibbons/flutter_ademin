@@ -1,15 +1,15 @@
 // Overview Content
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/page/profile/widgets/profile_overview_about.dart';
-import 'package:flutter_ademin/demo/page/profile/widgets/profile_overview_personal_information.dart';
-import 'package:flutter_ademin/demo/page/profile/widgets/profile_overview_popular_post.dart';
-import 'package:flutter_ademin/demo/page/profile/widgets/profile_overview_recent_activities.dart';
-import 'package:flutter_ademin/demo/page/profile/widgets/profile_overview_social_media.dart';
-import 'package:flutter_ademin/demo/page/profile/widgets/profile_overview_suggestion.dart';
-import 'package:flutter_ademin/demo/page/profile/widgets/profile_overview_tech_stack.dart';
-import 'package:flutter_ademin/demo/page/profile/widgets/profile_projects_slider.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/page/profile/widgets/profile_overview_about.dart';
+import 'package:flutkit_ademin/demo/page/profile/widgets/profile_overview_personal_information.dart';
+import 'package:flutkit_ademin/demo/page/profile/widgets/profile_overview_popular_post.dart';
+import 'package:flutkit_ademin/demo/page/profile/widgets/profile_overview_recent_activities.dart';
+import 'package:flutkit_ademin/demo/page/profile/widgets/profile_overview_social_media.dart';
+import 'package:flutkit_ademin/demo/page/profile/widgets/profile_overview_suggestion.dart';
+import 'package:flutkit_ademin/demo/page/profile/widgets/profile_overview_tech_stack.dart';
+import 'package:flutkit_ademin/demo/page/profile/widgets/profile_projects_slider.dart';
 
 class OverviewContent extends StatelessWidget {
   const OverviewContent({

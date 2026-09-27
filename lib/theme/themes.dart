@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/theme/theme_extensions/app_sidebar_theme.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/theme/theme_extensions/app_sidebar_theme.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ThemePalette {
@@ -18,6 +19,8 @@ class ThemePalette {
   Color warning = const Color(0xFFFAB237);
   Color text = const Color(0xff878a99);
 
+  // Gradient
+
   /// switch palette by index (0 = default, 1 = alt1, 2 = alt2)
   void setPalette(int index) {
     switch (index) {
@@ -33,7 +36,7 @@ class ThemePalette {
         break;
       case 2:
         primary = const Color(0xFF463171);
-        primaryDark = const Color(0xFF1a0835);
+        primaryDark = const Color(0xFF212529);
         secondary = const Color(0xFF663171);
         error = const Color(0xFFea301c);
         success = const Color(0xFF34a36a);
@@ -43,7 +46,7 @@ class ThemePalette {
         break;
       case 3:
         primary = const Color(0xFF520DC2);
-        primaryDark = const Color(0xFF140330);
+        primaryDark = const Color(0xFF212529);
         secondary = const Color(0xFF0D22C2);
         error = const Color(0xFFdc3545);
         success = const Color(0xFF20c997);
@@ -53,13 +56,23 @@ class ThemePalette {
         break;
       case 4:
         primary = const Color(0xFF087990);
-        primaryDark = const Color(0xFF032830);
+        primaryDark = const Color(0xFF212529);
         secondary = const Color(0xFFD63384);
         error = const Color(0xFFDC3545);
         success = const Color(0xFF20C997);
         info = const Color(0xFF0DCAF0);
         warning = const Color(0xFFFFCD39);
         text = const Color(0xff495057);
+        break;
+      case 5:
+        primary = const Color(0xFF13509B);
+        primaryDark = const Color(0xFF212529);
+        secondary = const Color(0xFF7B70EF);
+        error = const Color(0xFFF7577E);
+        success = const Color(0xFF0DC6AD);
+        info = const Color(0xFF5BC3E1);
+        warning = const Color(0xFFF9BF59);
+        text = const Color(0xff878a99);
         break;
       case 0:
       default:
@@ -104,6 +117,25 @@ const Color kSurfaceBrightDark = Color(0xFF25292D);
 const Color kScreenBackgroundColorLight = Color(0xFFF3F3F9);
 const Color kScreenBackgroundColorDark = Color(0xFF1A1D21);
 
+// reusable gradients
+LinearGradient get kPrimaryGradient => LinearGradient(
+  begin: Alignment.topLeft,
+  end: Alignment.bottomRight,
+  colors: [ThemePalette.instance.primary, ThemePalette.instance.secondary],
+);
+
+LinearGradient get kPurpleGradient => const LinearGradient(
+  begin: Alignment.topLeft,
+  end: Alignment.bottomRight,
+  colors: [Colors.deepPurple, Colors.purple],
+);
+
+LinearGradient get kInfoGradient => LinearGradient(
+  begin: Alignment.topLeft,
+  end: Alignment.bottomRight,
+  colors: [ThemePalette.instance.info, ThemePalette.instance.secondary],
+);
+
 //outline color
 Color kOutlineColorLight = Colors.grey.withValues(alpha: 0.3);
 const Color kOutlineColorDark = Color(0xff32383e);
@@ -120,7 +152,7 @@ class AppThemeData {
 
   static AppThemeData get instance => _instance;
 
-  ThemeData light() {
+  ThemeData light({bool useLightSidebar = false}) {
     final themeData = ThemeData(
       useMaterial3: false,
       visualDensity: VisualDensity.compact,
@@ -129,9 +161,16 @@ class AppThemeData {
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.white,
         elevation: 0.1,
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor: kPrimaryColor,
+          statusBarIconBrightness: Brightness.dark, // icon dark
+          statusBarBrightness: Brightness.light, // iOS
+        ),
       ),
       scaffoldBackgroundColor: kScreenBackgroundColorLight,
-      drawerTheme: DrawerThemeData(backgroundColor: kPrimaryColor),
+      drawerTheme: DrawerThemeData(
+        backgroundColor: useLightSidebar ? kSurfaceLight : kPrimaryColor,
+      ),
       canvasColor: kSurfaceContainerHighLight,
       hoverColor: kTableHeaderColor,
       focusColor: Color(0x35A2ADBC),
@@ -155,9 +194,12 @@ class AppThemeData {
         onInverseSurface: kOnSurfaceDark,
         surfaceContainerLow: kPrimaryColor.withValues(alpha: 0.05),
       ),
-      cardTheme: const CardThemeData(
+      cardTheme: CardThemeData(
         margin: EdgeInsets.zero,
         color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(defaultRadius),
+        ),
       ),
       textTheme: GoogleFonts.poppinsTextTheme().copyWith(
         displayLarge: GoogleFonts.poppins(
@@ -338,27 +380,36 @@ class AppThemeData {
     );
 
     final appSidebarTheme = AppSidebarTheme(
-      backgroundColor: themeData.drawerTheme.backgroundColor!,
-      foregroundColor: const Color(0xFFabb9e8),
+      backgroundColor: useLightSidebar
+          ? themeData.colorScheme.surface
+          : themeData.drawerTheme.backgroundColor!,
+      foregroundColor: useLightSidebar
+          ? themeData.colorScheme.onSurface
+          : Colors.white.withValues(alpha: 0.5),
       sidebarWidth: kSidebarWidth,
-      sidebarLeftPadding: kDefaultPadding,
+      sidebarLeftPadding: kDefaultPadding / 2,
       sidebarTopPadding: kDefaultPadding,
-      sidebarRightPadding: kDefaultPadding,
+      sidebarRightPadding: kDefaultPadding / 2,
       sidebarBottomPadding: kDefaultPadding,
-      headerUserProfileRadius: 20.0,
-      headerUsernameFontSize: 14.0,
-      headerTextButtonFontSize: 14.0,
       menuFontSize: kBodyMedium,
-      menuBorderRadius: 5.0,
-      menuLeftPadding: 0.0,
+      menuBorderRadius: defaultRadius,
+      menuLeftPadding: kDefaultPadding / 2,
       menuTopPadding: 2.0,
       menuRightPadding: 0.0,
       menuBottomPadding: 2.0,
-      menuHoverColor: Colors.white.withValues(alpha: 0.5),
-      menuSelectedFontColor: Colors.white,
+      menuHoverColor: useLightSidebar
+          ? themeData.colorScheme.onSurface
+          : Colors.white.withValues(alpha: 0.5),
+      menuSelectedFontColor: useLightSidebar
+          ? themeData.colorScheme.onSurface
+          : Colors.white,
       menuSelectedBackgroundColor: kPrimaryColor,
-      menuExpandedBackgroundColor: Colors.white.withValues(alpha: 0.02),
-      menuExpandedHoverColor: Colors.white.withValues(alpha: 0.02),
+      menuExpandedBackgroundColor: useLightSidebar
+          ? themeData.colorScheme.onSurface
+          : Colors.white.withValues(alpha: 0.02),
+      menuExpandedHoverColor: useLightSidebar
+          ? themeData.colorScheme.onSurface
+          : Colors.white.withValues(alpha: 0.02),
       menuExpandedChildLeftPadding: 4.0,
       menuExpandedChildTopPadding: 2.0,
       menuExpandedChildRightPadding: 4.0,
@@ -374,13 +425,20 @@ class AppThemeData {
     );
   }
 
-  ThemeData dark() {
+  ThemeData dark({bool useLightSidebar = false}) {
     final themeData = ThemeData.dark(useMaterial3: false).copyWith(
       drawerTheme: DrawerThemeData(backgroundColor: kPrimaryColorDark),
       appBarTheme: AppBarTheme(
         iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: kPrimaryColorDark,
         foregroundColor: Colors.white,
+        systemOverlayStyle: SystemUiOverlayStyle(
+          statusBarColor:
+              kPrimaryColorDark, // Set the status bar color to match the app bar
+          statusBarIconBrightness:
+              Brightness.light, // icon light for dark background
+          statusBarBrightness: Brightness.light, // iOS
+        ),
       ),
       visualDensity: VisualDensity.compact,
       scaffoldBackgroundColor: kScreenBackgroundColorDark,
@@ -539,27 +597,36 @@ class AppThemeData {
     );
 
     final appSidebarTheme = AppSidebarTheme(
-      backgroundColor: themeData.drawerTheme.backgroundColor!,
-      foregroundColor: const Color(0xFF7c7f90),
+      backgroundColor: useLightSidebar
+          ? themeData.colorScheme.surface
+          : themeData.drawerTheme.backgroundColor!,
+      foregroundColor: useLightSidebar
+          ? themeData.colorScheme.onSurface
+          : Colors.white.withValues(alpha: 0.5),
       sidebarWidth: kSidebarWidth,
-      sidebarLeftPadding: kDefaultPadding,
+      sidebarLeftPadding: kDefaultPadding / 2,
       sidebarTopPadding: kDefaultPadding,
-      sidebarRightPadding: kDefaultPadding,
+      sidebarRightPadding: kDefaultPadding / 2,
       sidebarBottomPadding: kDefaultPadding,
-      headerUserProfileRadius: 20.0,
-      headerUsernameFontSize: 14.0,
-      headerTextButtonFontSize: 14.0,
       menuFontSize: kBodyMedium,
-      menuBorderRadius: 5.0,
-      menuLeftPadding: 0.0,
+      menuBorderRadius: defaultRadius,
+      menuLeftPadding: kDefaultPadding / 2,
       menuTopPadding: 2.0,
       menuRightPadding: 0.0,
       menuBottomPadding: 2.0,
-      menuHoverColor: Colors.blueGrey.withValues(alpha: 0.03),
-      menuSelectedFontColor: Colors.white,
-      menuSelectedBackgroundColor: kPrimaryColorDark,
-      menuExpandedBackgroundColor: Colors.blueGrey.withValues(alpha: 0.03),
-      menuExpandedHoverColor: Colors.blueGrey.withValues(alpha: 0.03),
+      menuHoverColor: useLightSidebar
+          ? themeData.colorScheme.onSurface
+          : Colors.white.withValues(alpha: 0.5),
+      menuSelectedFontColor: useLightSidebar
+          ? themeData.colorScheme.onSurface
+          : Colors.white,
+      menuSelectedBackgroundColor: kPrimaryColor,
+      menuExpandedBackgroundColor: useLightSidebar
+          ? themeData.colorScheme.onSurface
+          : Colors.white.withValues(alpha: 0.02),
+      menuExpandedHoverColor: useLightSidebar
+          ? themeData.colorScheme.onSurface
+          : Colors.white.withValues(alpha: 0.02),
       menuExpandedChildLeftPadding: 4.0,
       menuExpandedChildTopPadding: 2.0,
       menuExpandedChildRightPadding: 4.0,

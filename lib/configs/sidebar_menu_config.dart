@@ -1,10 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/sidebar.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/sidebar.dart';
 
 final sidebarMenuConfigs = [
+  // Test
+  // SidebarMenuConfig(
+  //   uri: RouteUri.labsPage,
+  //   icon: Icons.view_kanban,
+  //   iconSize: 20,
+  //   title: (context) => 'Labs',
+  //   fontSize: kBodyLarge,
+  // ),
+
   // Dashboard
   SidebarMenuConfig(
     uri: '',

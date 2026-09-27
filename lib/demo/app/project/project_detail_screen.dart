@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/project/project_data.dart';
-import 'package:flutter_ademin/demo/app/project/project_models.dart';
-import 'package:flutter_ademin/demo/app/project/widgets/project_detail_activity.dart';
-import 'package:flutter_ademin/demo/app/project/widgets/project_detail_attachment.dart';
-import 'package:flutter_ademin/demo/app/project/widgets/project_detail_header.dart';
-import 'package:flutter_ademin/demo/app/project/widgets/project_detail_overview.dart';
-import 'package:flutter_ademin/demo/app/project/widgets/project_detail_task_table.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/helper/page_title.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_footer.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_master_layout.dart';
-import 'package:flutter_ademin/widgets/base_ui/tab.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/project/project_data.dart';
+import 'package:flutkit_ademin/demo/app/project/project_models.dart';
+import 'package:flutkit_ademin/demo/app/project/widgets/project_detail_activity.dart';
+import 'package:flutkit_ademin/demo/app/project/widgets/project_detail_attachment.dart';
+import 'package:flutkit_ademin/demo/app/project/widgets/project_detail_header.dart';
+import 'package:flutkit_ademin/demo/app/project/widgets/project_detail_overview.dart';
+import 'package:flutkit_ademin/demo/app/project/widgets/project_detail_task_table.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/helper/page_title.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_footer.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_master_layout.dart';
+import 'package:flutkit_ademin/widgets/base_ui/tab.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
 
 class ProjectDetailScreen extends StatefulWidget {
   const ProjectDetailScreen({super.key});

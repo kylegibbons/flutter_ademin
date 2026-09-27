@@ -1,4 +1,4 @@
-import 'package:flutter_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
 
 late Environment _env;
 

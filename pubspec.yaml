@@ -1,25 +1,23 @@
-name: flutter_ademin
-description: "Flutter Dashboard UI Kit."
+name: flutkit_ademin
+description: "AI-Powered Flutter Dashboard UI Kit."
 publish_to: 'none'
-version: 0.1.0
+version: 1.0.4
 
 environment:
-  sdk: ^3.10.3
+  sdk: ^3.12.2
 
 dependencies:
-  awesome_dialog: ^3.2.1
-  web: ^1.1.1
-  badges: ^3.1.2
-  collection: ^1.18.0
-  cross_file: ^0.3.4+2
-  dotted_border: ^3.1.0
-  emoji_picker_flutter: ^4.3.0
-  file_picker: ^11.0.2
-  fl_chart: ^1.0.0
-  fleather: ^1.19.0
-  flex_color_picker: ^3.6.0
   flutter:
     sdk: flutter
+  web: ^1.1.1
+  collection: ^1.18.0
+  desktop_drop: ^0.7.1
+  dotted_border: ^3.1.0
+  emoji_picker_flutter: ^4.5.3
+  file_selector: ^1.1.0
+  fleather: ^1.19.0
+  flex_color_picker: ^3.6.0
+
   flutter_colorpicker: ^1.1.0
   flutter_form_builder: ^10.0.1
   flutter_gantt:
@@ -28,9 +26,7 @@ dependencies:
   flutter_html: ^3.0.0-beta.2
   flutter_localizations:
     sdk: flutter
-  flutter_timezone: ^5.0.1
   flutter_quill: ^11.4.0
-  flutter_slidable: ^4.0.0
   flutter_spinkit: ^5.2.1
   flutter_syntax_view: ^4.1.0
   font_awesome_flutter: ^11.0.0
@@ -39,22 +35,14 @@ dependencies:
   go_router: ^17.1.0
   google_fonts: ^8.0.1
   intl: ^0.20.2
-  markdown_widget: ^2.3.2+8
-  pointer_interceptor: ^0.10.1+2
-  provider: ^6.1.2
   shared_preferences: ^2.3.1
   syncfusion_flutter_calendar: ^33.2.10
   syncfusion_flutter_charts: ^33.2.10
   syncfusion_flutter_core: ^33.2.10
   syncfusion_flutter_datagrid: ^33.2.10
-  syncfusion_flutter_datagrid_export: ^33.2.10
   syncfusion_flutter_sliders: ^33.2.10
-  syncfusion_localizations: ^33.2.10
-  table_calendar: ^3.1.2
   timeline_list: ^0.1.1
   timelines_plus: ^2.0.0
-  toastification: ^3.0.2
-  timezone: ^0.11.0
   url_launcher: ^6.3.1
   webview_flutter: ^4.8.0
   flutter_native_splash: ^2.4.6
@@ -79,6 +67,7 @@ dev_dependencies:
   intl_utils: ^2.8.7
   flutter_launcher_icons: ^0.14.4
   msix: ^3.16.12
+  
 
 flutter:
   uses-material-design: true
@@ -139,3 +128,4 @@ msix_config:
   msix_version: 1.0.0.0
   logo_path: assets/images/icon.png
   capabilities: internetClient
+

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/project/project_models.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/project/project_models.dart';
 
 class TaskStatusOverview extends StatelessWidget {
   final List<ProjectTask> tasks;

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/subscription/dialogs/update_payment.dart';
-import 'package:flutter_ademin/demo/app/subscription/subscription_data.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/base_ui/dialog.dart';
-import 'package:flutter_ademin/widgets/base_ui/progress.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/subscription/dialogs/update_payment.dart';
+import 'package:flutkit_ademin/demo/app/subscription/subscription_data.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/base_ui/dialog.dart';
+import 'package:flutkit_ademin/widgets/base_ui/progress.dart';
 
 class PaymentMethodCard extends StatelessWidget {
   final String cardBrand;

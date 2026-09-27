@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/chat/chat_model.dart';
-import 'package:flutter_ademin/demo/app/chat/dialogs/create_channel_dialog.dart';
-import 'package:flutter_ademin/demo/app/chat/dialogs/new_chat_dialog.dart';
-import 'package:flutter_ademin/demo/app/chat/widgets/chat_content.dart';
-import 'package:flutter_ademin/demo/app/chat/widgets/chat_sidebar.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_master_layout.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/chat/chat_model.dart';
+import 'package:flutkit_ademin/demo/app/chat/dialogs/create_channel_dialog.dart';
+import 'package:flutkit_ademin/demo/app/chat/dialogs/new_chat_dialog.dart';
+import 'package:flutkit_ademin/demo/app/chat/widgets/chat_content.dart';
+import 'package:flutkit_ademin/demo/app/chat/widgets/chat_sidebar.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_master_layout.dart';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});

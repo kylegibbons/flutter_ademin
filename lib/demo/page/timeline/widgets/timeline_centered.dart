@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/page/timeline/timeline_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/page/timeline/timeline_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
 import 'package:timeline_list/timeline_list.dart';
 
 class CenteredTimeline extends StatelessWidget {

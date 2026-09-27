@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/demo/page/gallery/gallery_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/demo/page/gallery/gallery_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
 
 class GalleryThumbnail extends StatelessWidget {
   const GalleryThumbnail({

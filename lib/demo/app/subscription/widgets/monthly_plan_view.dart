@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/subscription/subscription_data.dart';
-import 'package:flutter_ademin/demo/app/subscription/widgets/pricing_card.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/subscription/subscription_data.dart';
+import 'package:flutkit_ademin/demo/app/subscription/widgets/pricing_card.dart';
 
 class MonthlyPlanView extends StatelessWidget {
   const MonthlyPlanView({super.key});

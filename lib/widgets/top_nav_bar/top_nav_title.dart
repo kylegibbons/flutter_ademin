@@ -1,11 +1,12 @@
-//title /logo widget
-
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/providers/sidebar_provider.dart';
-import 'package:flutter_ademin/theme/theme_extensions/app_sidebar_theme.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/providers/app_preferences_provider.dart';
+import 'package:flutkit_ademin/providers/sidebar_provider.dart';
+import 'package:flutkit_ademin/theme/theme_extensions/app_sidebar_theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+//title /logo widget
 
 class ResponsiveAppBarTitle extends ConsumerStatefulWidget {
   final void Function() onAppBarTitlePressed;
@@ -17,8 +18,7 @@ class ResponsiveAppBarTitle extends ConsumerStatefulWidget {
       _ResponsiveAppBarTitleState();
 }
 
-class _ResponsiveAppBarTitleState
-    extends ConsumerState<ResponsiveAppBarTitle> {
+class _ResponsiveAppBarTitleState extends ConsumerState<ResponsiveAppBarTitle> {
   bool _showFullLogo = true;
   @override
   Widget build(BuildContext context) {
@@ -27,6 +27,9 @@ class _ResponsiveAppBarTitleState
     final sidebarTheme = themeData.extension<AppSidebarTheme>()!;
     final sidebarState = ref.watch(sidebarProvider);
     final isSidebarHovered = ref.watch(sidebarHoverProvider);
+    final useLightSidebar = ref.watch(
+      appPreferencesProvider.select((state) => state.useLightSidebar),
+    );
 
     // Calculates the state of whether the sidebar should expand/fill
     final bool shouldExpand =
@@ -57,9 +60,16 @@ class _ResponsiveAppBarTitleState
     });
 
     // Determine the correct logo path based on the local state (_showFullLogo)
+    final bool isDarkMode = themeData.brightness == Brightness.dark;
     final String logoPath;
 
-    logoPath = _showFullLogo ? AppSettings.logoPath : AppSettings.logoMinPath;
+    logoPath = _showFullLogo
+        ? (isDarkMode
+              ? AppSettings.logoPath
+              : (useLightSidebar
+                    ? AppSettings.logoDarkPath
+                    : AppSettings.logoPath))
+        : AppSettings.logoMinPath;
 
     return MouseRegion(
       onEnter: (_) {

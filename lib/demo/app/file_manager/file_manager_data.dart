@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/demo/app/file_manager/file_manager_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/demo/app/file_manager/file_manager_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
 
 class MockData {
   // Data for All Media & Chart

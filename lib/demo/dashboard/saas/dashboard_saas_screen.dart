@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/dashboard/saas/dashboard_saas_models.dart';
-import 'package:flutter_ademin/demo/dashboard/saas/dashboard_saas_screen_data.dart';
-import 'package:flutter_ademin/demo/dashboard/saas/widgets/conversion_funnel_chart.dart';
-import 'package:flutter_ademin/demo/dashboard/saas/widgets/product_performance_card.dart';
-import 'package:flutter_ademin/demo/dashboard/saas/widgets/recent_activities.dart';
-import 'package:flutter_ademin/demo/dashboard/saas/widgets/recent_invoices_table.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/base_ui/metric_card.dart';
-import 'package:flutter_ademin/widgets/helper/page_title.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/breadcrumb.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/page_header.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_footer.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_master_layout.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/widgets/ai/ai_flyout/config/ai_flyout_config.dart';
+import 'package:flutkit_ademin/widgets/ai/ai_flyout/data_sources/ai_flyout_data_source.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/dashboard/saas/dashboard_saas_models.dart';
+import 'package:flutkit_ademin/demo/dashboard/saas/data/dashboard_saas_ai_operator_data.dart';
+import 'package:flutkit_ademin/demo/dashboard/saas/data/dashboard_saas_data.dart';
+import 'package:flutkit_ademin/demo/dashboard/saas/widgets/conversion_funnel_chart.dart';
+import 'package:flutkit_ademin/demo/dashboard/saas/widgets/product_performance_card.dart';
+import 'package:flutkit_ademin/demo/dashboard/saas/widgets/recent_activities.dart';
+import 'package:flutkit_ademin/demo/dashboard/saas/widgets/recent_invoices_table.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/ai/ai_dasboard/ai_action_card.dart';
+import 'package:flutkit_ademin/widgets/ai/ai_dasboard/ai_insight_card.dart';
+import 'package:flutkit_ademin/widgets/base_ui/metric_card.dart';
+import 'package:flutkit_ademin/widgets/helper/page_title.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/breadcrumb.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/page_header.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_footer.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_master_layout.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DashboardSaasScreen extends StatefulWidget {
@@ -43,8 +48,18 @@ class _DashboardSaasScreenState extends State<DashboardSaasScreen> {
   @override
   Widget build(BuildContext context) {
     final lang = Lang.of(context);
+    final mockData = getSaaSAIOperatorData();
 
     return PortalMasterLayout(
+      aiFlyout: AIFlyoutConfig(
+        enabled: true,
+        dataSource: StaticDataSource(mockData),
+        drawerWidth: 640,
+        badgeCount: mockData.conversations.fold<int>(
+          0,
+          (sum, conversation) => sum + conversation.unreadCount,
+        ),
+      ),
       body: ListView(
         children: [
           // page header
@@ -62,7 +77,7 @@ class _DashboardSaasScreenState extends State<DashboardSaasScreen> {
             child: Column(
               children: [
                 // Overview Metrics
-                AdaptiveWrap(
+                ResponsiveWrap(
                   breakpoints: {
                     kScreenWidthMd: 1,
                     kScreenWidthLg: 2,
@@ -116,7 +131,7 @@ class _DashboardSaasScreenState extends State<DashboardSaasScreen> {
 
                 SizedBox(height: kDefaultPadding),
 
-                AdaptiveWrap(
+                ResponsiveWrap(
                   breakpoints: {kScreenWidthXl: 1, kScreenWidthXxl: 2},
                   columnRatios: const [0.7, 0.3],
                   spacing: kDefaultPadding,
@@ -125,7 +140,7 @@ class _DashboardSaasScreenState extends State<DashboardSaasScreen> {
                   children: [
                     Column(
                       children: [
-                        AdaptiveWrap(
+                        ResponsiveWrap(
                           breakpoints: {kScreenWidthMd: 1, kScreenWidthXxl: 2},
                           columnRatios: const [0.5, 0.5],
                           spacing: kDefaultPadding,
@@ -204,8 +219,33 @@ class _DashboardSaasScreenState extends State<DashboardSaasScreen> {
                 ),
 
                 SizedBox(height: kDefaultPadding),
+                ResponsiveWrap(
+                  breakpoints: {kScreenWidthLg: 1, kScreenWidthXl: 2},
+                  columnRatios: [0.6, 0.4],
+                  spacing: kDefaultPadding,
+                  runSpacing: kDefaultPadding,
+                  children: [
+                    // AI Insight
+                    AiInsightCard(
+                      insight: DummyAiInsights.getSaaSChurnInsight(),
+                    ),
 
-                AdaptiveWrap(
+                    // AI Action
+                    SizedBox(
+                      height: 285,
+                      child: AIActionsCard(
+                        onViewAll: () {
+                          debugPrint('Navigate to View All');
+                        },
+                        actions: DummyAIActionData.aiActions,
+                      ),
+                    ),
+                  ],
+                ),
+
+                SizedBox(height: kDefaultPadding),
+
+                ResponsiveWrap(
                   breakpoints: {kScreenWidthXl: 1, kScreenWidthXxl: 2},
                   columnRatios: const [0.7, 0.3],
                   spacing: kDefaultPadding,

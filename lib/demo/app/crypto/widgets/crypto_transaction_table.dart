@@ -1,16 +1,16 @@
 // Crypto table
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/crypto/crypto_data.dart';
-import 'package:flutter_ademin/demo/app/crypto/crypto_models.dart';
-import 'package:flutter_ademin/demo/app/crypto/dialogs/crypto_transaction_deposit_dialog.dart';
-import 'package:flutter_ademin/demo/app/crypto/dialogs/crypto_transaction_withdraw_dialog.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/badge.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/base_ui/dialog.dart';
-import 'package:flutter_ademin/widgets/form/form_basic_element.dart';
-import 'package:flutter_ademin/widgets/table/table_style.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/crypto/crypto_data.dart';
+import 'package:flutkit_ademin/demo/app/crypto/crypto_models.dart';
+import 'package:flutkit_ademin/demo/app/crypto/dialogs/crypto_transaction_deposit_dialog.dart';
+import 'package:flutkit_ademin/demo/app/crypto/dialogs/crypto_transaction_withdraw_dialog.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/badge.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/base_ui/dialog.dart';
+import 'package:flutkit_ademin/widgets/form/form_basic_element.dart';
+import 'package:flutkit_ademin/widgets/table/table_style.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_core/theme.dart';

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/dashboard/project/dashboard_project_data.dart';
-import 'package:flutter_ademin/demo/dashboard/project/dashboard_project_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/chart/chart.dart';
-import 'package:flutter_ademin/widgets/helper/card_header.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/dashboard/project/data/dashboard_project_data.dart';
+import 'package:flutkit_ademin/demo/dashboard/project/dashboard_project_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/chart/chart.dart';
+import 'package:flutkit_ademin/widgets/helper/card_header.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:flutter_ademin/demo/dashboard/project/widgets/popup_menu_button.dart';
+import 'package:flutkit_ademin/demo/dashboard/project/widgets/popup_menu_button.dart';
 
 class AvgResolutionResponseChart extends StatelessWidget {
   const AvgResolutionResponseChart({super.key});

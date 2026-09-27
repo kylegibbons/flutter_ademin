@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/project/project_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/base_ui/progress.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/project/project_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/base_ui/progress.dart';
 import 'package:intl/intl.dart';
 
 class TaskGanttSummary extends StatelessWidget {
@@ -25,7 +25,7 @@ class TaskGanttSummary extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       child: Padding(
         padding: const EdgeInsets.all(kDefaultPadding),
-        child: AdaptiveWrap(
+        child: ResponsiveWrap(
           spacing: 2 * kDefaultPadding,
           runSpacing: kDefaultPadding,
           columnRatios: [1 / 4, 3 / 4],
@@ -58,7 +58,7 @@ class TaskGanttSummary extends StatelessWidget {
                 ),
               ],
             ),
-            AdaptiveWrap(
+            ResponsiveWrap(
               spacing: 2 * kDefaultPadding,
               runSpacing: kDefaultPadding,
               columnRatios: [2 / 9, 2 / 9, 2 / 9, 1 / 3],

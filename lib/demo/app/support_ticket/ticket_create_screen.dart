@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/support_ticket/widgets/create_ticket_attachment.dart';
-import 'package:flutter_ademin/demo/app/support_ticket/widgets/create_ticket_form.dart';
-import 'package:flutter_ademin/demo/app/support_ticket/widgets/create_ticket_client_info.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/helper/page_title.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/breadcrumb.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/page_header.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_footer.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_master_layout.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/support_ticket/widgets/create_ticket_attachment.dart';
+import 'package:flutkit_ademin/demo/app/support_ticket/widgets/create_ticket_form.dart';
+import 'package:flutkit_ademin/demo/app/support_ticket/widgets/create_ticket_client_info.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/helper/page_title.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/breadcrumb.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/page_header.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_footer.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_master_layout.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
 
 class TicketCreateScreen extends StatefulWidget {
   const TicketCreateScreen({super.key});
@@ -149,7 +149,7 @@ class _TicketCreateScreenState extends State<TicketCreateScreen> {
             padding: EdgeInsets.all(kDefaultPadding),
             child: Form(
               key: _formKey,
-              child: AdaptiveWrap(
+              child: ResponsiveWrap(
                 breakpoints: {kScreenWidthXl: 1, kScreenWidthXxl: 2},
                 columnRatios: [0.7, 0.3],
                 children: [

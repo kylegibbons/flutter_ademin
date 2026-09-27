@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/form/form_checkbox_radio.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/form/form_checkbox_radio.dart';
 
 enum CancelReason { tooExpensive, notUsing, missingFeatures, switching, other }
 
@@ -155,7 +155,7 @@ class _CancelSubscriptionDialogState extends State<CancelSubscriptionDialog> {
           const SizedBox(height: kDefaultPadding),
 
           /// Actions
-          AdaptiveWrap(
+          ResponsiveWrap(
             spacing: kDefaultPadding,
             runSpacing: kDefaultPadding / 2,
             breakpoints: {kScreenWidthSm: 1, kScreenWidthMd: 2},

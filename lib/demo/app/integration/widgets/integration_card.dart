@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/integration/dialogs/details_integration_form.dart';
-import 'package:flutter_ademin/demo/app/integration/dialogs/edit_integration_form.dart';
-import 'package:flutter_ademin/demo/app/integration/integration_data.dart';
-import 'package:flutter_ademin/demo/app/integration/integration_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/base_ui/dialog.dart';
-import 'package:flutter_ademin/widgets/base_ui/popup_menu.dart';
-import 'package:flutter_ademin/widgets/form/form_checkbox_radio.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/integration/dialogs/details_integration_form.dart';
+import 'package:flutkit_ademin/demo/app/integration/dialogs/edit_integration_form.dart';
+import 'package:flutkit_ademin/demo/app/integration/integration_data.dart';
+import 'package:flutkit_ademin/demo/app/integration/integration_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/base_ui/dialog.dart';
+import 'package:flutkit_ademin/widgets/base_ui/popup_menu.dart';
+import 'package:flutkit_ademin/widgets/form/form_checkbox_radio.dart';
 import 'package:flutter_svg/svg.dart';
 
 class IntegrationCardGrid extends StatefulWidget {
@@ -42,7 +42,7 @@ class _IntegrationCardGridState extends State<IntegrationCardGrid> {
 
   @override
   Widget build(BuildContext context) {
-    return AdaptiveWrap(
+    return ResponsiveWrap(
       breakpoints: {
         kScreenWidthSm: 1, // set breakpoint for 1 column layout,
         kScreenWidthMd: 2, // set breakpoint for 2 column layout

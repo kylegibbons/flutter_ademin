@@ -1,6 +1,6 @@
 // pricing plan data mock up
 
-import 'package:flutter_ademin/demo/app/subscription/subscription_models.dart';
+import 'package:flutkit_ademin/demo/app/subscription/subscription_models.dart';
 
 List<Map<String, dynamic>> plans = [
   {

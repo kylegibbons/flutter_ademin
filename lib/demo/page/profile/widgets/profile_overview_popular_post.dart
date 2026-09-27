@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/page/profile/profile_data.dart';
-import 'package:flutter_ademin/widgets/helper/card_header.dart';
-import 'package:flutter_ademin/demo/page/profile/widgets/popup_menu_button.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/page/profile/profile_data.dart';
+import 'package:flutkit_ademin/widgets/helper/card_header.dart';
+import 'package:flutkit_ademin/demo/page/profile/widgets/popup_menu_button.dart';
 
 class PopularPost extends StatelessWidget {
   const PopularPost({super.key});

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/page/profile/profile_data.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/progress.dart';
-import 'package:flutter_ademin/widgets/helper/card_header.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/page/profile/profile_data.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/progress.dart';
+import 'package:flutkit_ademin/widgets/helper/card_header.dart';
 
 class TechStack extends StatelessWidget {
   const TechStack({super.key});

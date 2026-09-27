@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/providers/app_preferences_provider.dart';
-import 'package:flutter_ademin/widgets/top_nav_bar/top_nav_button.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/providers/app_preferences_provider.dart';
+import 'package:flutkit_ademin/widgets/top_nav_bar/top_nav_button.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// Language Selector ///
@@ -24,6 +24,7 @@ class LocaleMenuConfig {
 const localeMenuConfigs = [
   LocaleMenuConfig(languageCode: 'en', name: 'English'),
   LocaleMenuConfig(languageCode: 'id', name: 'Indonesia'),
+  LocaleMenuConfig(languageCode: 'ar', name: 'العربية'),
 
   // add new translation config here
 ];

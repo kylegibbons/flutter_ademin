@@ -1,7 +1,7 @@
 import 'dart:math';
 
-import 'package:flutter_ademin/ai_reference/ai_reference_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/ai_reference/ai_reference_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
 
 final List<CountryUserData> liveUserData = [
   CountryUserData('United States', 2450),

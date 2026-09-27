@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/demo/app/chat/chat_model.dart';
+import 'package:flutkit_ademin/demo/app/chat/chat_model.dart';
 
 class MockData {
   // --- Define Users ---

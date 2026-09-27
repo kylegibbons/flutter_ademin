@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
 import 'package:flutter_gantt/flutter_gantt.dart';
 
 enum GanttTimelineView {

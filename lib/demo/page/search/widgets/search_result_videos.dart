@@ -1,12 +1,12 @@
 // video search results
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/page/search/search_result_data.dart';
-import 'package:flutter_ademin/demo/page/search/search_result_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/base_ui/html_embed_stub.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/page/search/search_result_data.dart';
+import 'package:flutkit_ademin/demo/page/search/search_result_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/base_ui/html_embed_stub.dart';
 
 class VideoSearchResults extends StatefulWidget {
   const VideoSearchResults({super.key});

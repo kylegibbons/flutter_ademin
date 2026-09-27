@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/crypto/crypto_data.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/animation/animated_icon.dart';
-import 'package:flutter_ademin/widgets/animation/animation.dart';
-import 'package:flutter_ademin/widgets/base_ui/badge.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/crypto/crypto_data.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/animation/animated_icon.dart';
+import 'package:flutkit_ademin/widgets/animation/animation.dart';
+import 'package:flutkit_ademin/widgets/base_ui/badge.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
@@ -16,7 +16,7 @@ class CryptoTransactionMetric extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AdaptiveWrap(
+    return ResponsiveWrap(
       spacing: kDefaultPadding,
       runSpacing: kDefaultPadding,
       breakpoints: {kScreenWidthMd: 1, kScreenWidthLg: 2, kScreenWidthXl: 4},

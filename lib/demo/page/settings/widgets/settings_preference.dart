@@ -1,9 +1,9 @@
 // Preferences Settings
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/form/form_checkbox_radio.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/form/form_checkbox_radio.dart';
 
 class PreferenceItem extends StatelessWidget {
   final String title;

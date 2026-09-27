@@ -6,6 +6,7 @@ const double kTextPadding = 4.0;
 
 // shape
 const double defaultRadius = 4;
+const double secondaryRadius = 4;
 const double roundedRadius = 50;
 // shape end
 

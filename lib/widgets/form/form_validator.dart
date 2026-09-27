@@ -1,6 +1,6 @@
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/widgets/form/platform_file.dart';
 
 typedef ValidatorFunction = String? Function(String? value);
 typedef FileValidatorFunction = String? Function(List<PlatformFile>? files);

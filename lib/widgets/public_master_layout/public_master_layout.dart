@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/providers/app_preferences_provider.dart';
-import 'package:flutter_ademin/widgets/top_nav_bar/language_selector.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/providers/app_preferences_provider.dart';
+import 'package:flutkit_ademin/widgets/top_nav_bar/language_selector.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class PublicMasterLayout extends ConsumerWidget {

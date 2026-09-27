@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
 
 //Card title widget
 
@@ -12,6 +12,7 @@ class CardHeader extends StatelessWidget {
     this.backgroundColor,
     this.textStyle,
     this.showDivider = true,
+    this.titleWidget,
   });
 
   final String kText;
@@ -20,6 +21,7 @@ class CardHeader extends StatelessWidget {
   final Color? backgroundColor;
   final TextStyle? textStyle;
   final bool showDivider;
+  final Widget? titleWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +46,7 @@ class CardHeader extends StatelessWidget {
                 : EdgeInsets.all(kDefaultPadding),
             child: Row(
               children: [
+                ?titleWidget,
                 Expanded(
                   child: Text(
                     kText.toUpperCase(),

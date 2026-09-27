@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/user_management/user_management_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/animation/animation.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/user_management/user_management_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/animation/animation.dart';
 
 class UserMetricsSection extends StatelessWidget {
   final List<UserModel> users;
@@ -12,7 +12,7 @@ class UserMetricsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final metrics = UserMetrics.fromUsers(users);
-    return AdaptiveWrap(
+    return ResponsiveWrap(
       breakpoints: {kScreenWidthMd: 1, kScreenWidthLg: 2, kScreenWidthXl: 4},
       columnRatios: const [0.25, 0.25, 0.25, 0.25],
       spacing: kDefaultPadding,

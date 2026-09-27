@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fleather/fleather.dart' as fleather_editor;
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/support_ticket/ticket_data.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/form/form_basic_element.dart';
-import 'package:flutter_ademin/widgets/form/form_dropdown.dart';
-import 'package:flutter_ademin/widgets/form/form_editor.dart';
-import 'package:flutter_ademin/widgets/form/form_validator.dart';
-import 'package:flutter_ademin/widgets/helper/card_header.dart';
-import 'package:flutter_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/support_ticket/ticket_data.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/form/form_basic_element.dart';
+import 'package:flutkit_ademin/widgets/form/form_dropdown.dart';
+import 'package:flutkit_ademin/widgets/form/form_editor.dart';
+import 'package:flutkit_ademin/widgets/form/form_validator.dart';
+import 'package:flutkit_ademin/widgets/helper/card_header.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
 
 class CreateTicketForm extends StatefulWidget {
   final String ticketId;
@@ -78,7 +78,7 @@ class _CreateTicketFormState extends State<CreateTicketForm> {
                 FormLabel(text: 'Ticket Details', showRequired: true),
                 const SizedBox(height: kDefaultPadding),
 
-                AdaptiveWrap(
+                ResponsiveWrap(
                   breakpoints: {kScreenWidthSm: 1, kScreenWidthMd: 2},
                   columnRatios: [1 / 2, 1 / 2],
                   children: [
@@ -197,7 +197,7 @@ class _DepartmentSelectorState extends State<DepartmentSelector> {
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
-    return AdaptiveWrap(
+    return ResponsiveWrap(
       spacing: kDefaultPadding,
       runSpacing: kDefaultPadding,
       breakpoints: {kScreenWidthSm: 2, kScreenWidthLg: 4},

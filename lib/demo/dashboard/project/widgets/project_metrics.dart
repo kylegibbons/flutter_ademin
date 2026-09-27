@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/base_ui/metric_card.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/base_ui/metric_card.dart';
 
 class ProjectMetricCard extends StatelessWidget {
   const ProjectMetricCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return AdaptiveWrap(
+    return ResponsiveWrap(
       breakpoints: {kScreenWidthMd: 1, kScreenWidthLg: 3},
       columnRatios: const [1 / 3, 1 / 3, 1 / 3],
       spacing: kDefaultPadding, // spacing

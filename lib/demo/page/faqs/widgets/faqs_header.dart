@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/form/form_basic_element.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/form/form_basic_element.dart';
 
 class FaqsHeader extends StatelessWidget {
   const FaqsHeader({super.key});
@@ -22,7 +22,7 @@ class FaqsHeader extends StatelessWidget {
         horizontal: kDefaultPadding,
       ),
       alignment: Alignment.center,
-      child: AdaptiveWrap(
+      child: ResponsiveWrap(
         spacing: kDefaultPadding,
         runSpacing: kDefaultPadding,
         columnRatios: [0.7, 0.3],

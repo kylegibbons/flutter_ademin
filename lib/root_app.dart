@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/providers/app_preferences_provider.dart';
-import 'package:flutter_ademin/providers/user_data_provider.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/app_focus_helper.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/providers/app_preferences_provider.dart';
+import 'package:flutkit_ademin/providers/user_data_provider.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/app_focus_helper.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -59,7 +59,7 @@ class _RootAppState extends ConsumerState<RootApp> {
 
             return MaterialApp.router(
               key: ValueKey(
-                'app-${preferences.appThemeIndex}-${preferences.themeMode.name}-${preferences.isRTL}-${preferences.locale.toLanguageTag()}',
+                'app-${preferences.appThemeIndex}-${preferences.themeMode.name}-${preferences.useLightSidebar}-${preferences.isRTL}-${preferences.locale.toLanguageTag()}',
               ),
               title: AppSettings.appName,
               debugShowCheckedModeBanner: false,
@@ -77,8 +77,12 @@ class _RootAppState extends ConsumerState<RootApp> {
               ],
               locale: preferences.locale,
               onGenerateTitle: (context) => AppSettings.appName,
-              theme: AppThemeData.instance.light(),
-              darkTheme: AppThemeData.instance.dark(),
+              theme: AppThemeData.instance.light(
+                useLightSidebar: preferences.useLightSidebar,
+              ),
+              darkTheme: AppThemeData.instance.dark(
+                useLightSidebar: preferences.useLightSidebar,
+              ),
               themeMode: preferences.themeMode,
               builder: (context, child) {
                 return MediaQuery(

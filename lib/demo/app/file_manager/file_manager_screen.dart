@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/file_manager/widgets/all_media_section.dart';
-import 'package:flutter_ademin/demo/app/file_manager/widgets/folder_section.dart';
-import 'package:flutter_ademin/demo/app/file_manager/widgets/recent_files_table.dart';
-import 'package:flutter_ademin/demo/app/file_manager/widgets/storage_details.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/helper/page_title.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/breadcrumb.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/page_header.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_footer.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_master_layout.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/file_manager/widgets/all_media_section.dart';
+import 'package:flutkit_ademin/demo/app/file_manager/widgets/folder_section.dart';
+import 'package:flutkit_ademin/demo/app/file_manager/widgets/recent_files_table.dart';
+import 'package:flutkit_ademin/demo/app/file_manager/widgets/storage_details.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/helper/page_title.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/breadcrumb.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/page_header.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_footer.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_master_layout.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
 
 class FileManagerScreen extends StatefulWidget {
   const FileManagerScreen({super.key});
@@ -66,7 +66,7 @@ class _FileManagerScreenState extends State<FileManagerScreen> {
                 AllMedia(),
                 SizedBox(height: kDefaultPadding),
 
-                AdaptiveWrap(
+                ResponsiveWrap(
                   breakpoints: {kScreenWidthLg: 1, kScreenWidthXl: 2},
                   columnRatios: const [
                     0.7, // set column A as 70% width

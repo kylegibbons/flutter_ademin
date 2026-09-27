@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/page/faqs/faqs_data.dart';
-import 'package:flutter_ademin/demo/page/faqs/widgets/faqs_section.dart';
-import 'package:flutter_ademin/demo/page/faqs/widgets/faqs_header.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/helper/page_title.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/breadcrumb.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/page_header.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_footer.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_master_layout.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/page/faqs/faqs_data.dart';
+import 'package:flutkit_ademin/demo/page/faqs/widgets/faqs_section.dart';
+import 'package:flutkit_ademin/demo/page/faqs/widgets/faqs_header.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/helper/page_title.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/breadcrumb.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/page_header.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_footer.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_master_layout.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
 
 class FaqsScreen extends StatefulWidget {
   const FaqsScreen({super.key});
@@ -65,7 +65,7 @@ class _FaqsScreenState extends State<FaqsScreen> {
               // faqs grid view
               Padding(
                 padding: const EdgeInsets.all(kDefaultPadding),
-                child: AdaptiveWrap(
+                child: ResponsiveWrap(
                   columnRatios: [1 / 3, 1 / 3, 1 / 3],
                   breakpoints: {
                     kScreenWidthSm: 1,

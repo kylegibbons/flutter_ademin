@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/file_manager/file_manager_data.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/base_ui/popup_menu.dart';
-import 'package:flutter_ademin/widgets/helper/card_header.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/file_manager/file_manager_data.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/base_ui/popup_menu.dart';
+import 'package:flutkit_ademin/widgets/helper/card_header.dart';
 
 class FolderSection extends StatelessWidget {
   const FolderSection({super.key});
@@ -34,7 +34,7 @@ class FolderSection extends StatelessWidget {
 
           Padding(
             padding: const EdgeInsets.all(kDefaultPadding),
-            child: AdaptiveWrap(
+            child: ResponsiveWrap(
               breakpoints: {
                 kScreenWidthSm: 1, // set breakpoint for 1 column layout,
                 kScreenWidthMd: 2, // set breakpoint for 2 column layout

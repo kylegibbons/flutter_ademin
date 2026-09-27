@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/page/gallery/gallery_models.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/page/gallery/gallery_models.dart';
 // gallery slider dialog
 
 class GallerySliderDialog extends StatefulWidget {

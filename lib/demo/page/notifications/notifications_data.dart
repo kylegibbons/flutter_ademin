@@ -1,6 +1,6 @@
 // Data Mockups
 
-import 'package:flutter_ademin/demo/page/notifications/notifications_models.dart';
+import 'package:flutkit_ademin/demo/page/notifications/notifications_models.dart';
 
 List<AppNotification> mockNotifications = [
   AppNotification(

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/calendar/calendar_data.dart';
-import 'package:flutter_ademin/demo/app/calendar/calendar_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/helper/card_header.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/calendar/calendar_data.dart';
+import 'package:flutkit_ademin/demo/app/calendar/calendar_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/helper/card_header.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
@@ -48,7 +48,7 @@ class _ScheduleCalendarState extends State<ScheduleCalendar> {
     final themeData = Theme.of(context);
     return Card(
       child: SizedBox(
-        height: 800,
+        height: 796,
         child: Column(
           children: [
             /// HEADER

@@ -3,11 +3,10 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  desktop_drop
   emoji_picker_flutter
   file_selector_windows
-  flutter_timezone
   fullscreen_window
-  rive_native
   url_launcher_windows
 )
 

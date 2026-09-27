@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/project/dialogs/delete_warning.dart';
-import 'package:flutter_ademin/demo/app/project/project_models.dart';
-import 'package:flutter_ademin/demo/app/project/widgets/project_grid_header.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/badge.dart';
-import 'package:flutter_ademin/widgets/base_ui/dialog.dart';
-import 'package:flutter_ademin/widgets/base_ui/popup_menu.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/project/dialogs/delete_warning_dialog.dart';
+import 'package:flutkit_ademin/demo/app/project/project_models.dart';
+import 'package:flutkit_ademin/demo/app/project/widgets/project_grid_header.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/badge.dart';
+import 'package:flutkit_ademin/widgets/base_ui/dialog.dart';
+import 'package:flutkit_ademin/widgets/base_ui/popup_menu.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/breadcrumb.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/breadcrumb.dart';
 
 class PageHeader extends StatelessWidget {
   const PageHeader({
@@ -28,15 +27,12 @@ class PageHeader extends StatelessWidget {
       decoration: BoxDecoration(
         color: themeData.colorScheme.surface,
         border: Border(
-          top: BorderSide(color: kTextColor.withValues(alpha: 0.1)),
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.1),
-            blurRadius: 1,
-            offset: const Offset(0, 1),
+          top: BorderSide(color: themeData.colorScheme.outline),
+          bottom: BorderSide(
+            color: Colors.black.withValues(alpha: 0.08),
+            width: 1,
           ),
-        ],
+        ),
       ),
       child: Wrap(
         spacing: kDefaultPadding,

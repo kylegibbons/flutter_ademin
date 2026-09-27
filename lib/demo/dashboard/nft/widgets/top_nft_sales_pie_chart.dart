@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/dashboard/nft/dashboard_nft_data.dart';
-import 'package:flutter_ademin/demo/dashboard/nft/dashboard_nft_models.dart';
-import 'package:flutter_ademin/demo/dashboard/nft/widgets/popup_menu_button.dart';
-import 'package:flutter_ademin/widgets/helper/card_header.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/dashboard/nft/data/dashboard_nft_data.dart';
+import 'package:flutkit_ademin/demo/dashboard/nft/dashboard_nft_models.dart';
+import 'package:flutkit_ademin/demo/dashboard/nft/widgets/popup_menu_button.dart';
+import 'package:flutkit_ademin/widgets/helper/card_header.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 // Top NFT Collections by Sales Volume pie chart

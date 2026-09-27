@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/configs/footer_config.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/configs/footer_config.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
 
 class PortalFooter extends StatelessWidget {
   const PortalFooter({super.key});

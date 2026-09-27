@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/page/profile/profile_data.dart';
-import 'package:flutter_ademin/demo/page/profile/profile_models.dart';
-import 'package:flutter_ademin/widgets/helper/card_header.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/page/profile/profile_data.dart';
+import 'package:flutkit_ademin/demo/page/profile/profile_models.dart';
+import 'package:flutkit_ademin/widgets/helper/card_header.dart';
 
 class PersonalInformation extends StatelessWidget {
   const PersonalInformation({super.key});

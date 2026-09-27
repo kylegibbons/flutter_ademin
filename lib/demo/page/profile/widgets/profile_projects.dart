@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/page/profile/profile_data.dart';
-import 'package:flutter_ademin/demo/page/profile/widgets/profile_project_card.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/page/profile/profile_data.dart';
+import 'package:flutkit_ademin/demo/page/profile/widgets/profile_project_card.dart';
 // Project Grid
 
 class ProjectContent extends StatelessWidget {

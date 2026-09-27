@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/calendar/calendar_data.dart';
-import 'package:flutter_ademin/demo/app/calendar/calendar_models.dart';
-import 'package:flutter_ademin/demo/app/calendar/dialogs/add_event_dialog.dart';
-import 'package:flutter_ademin/demo/app/calendar/dialogs/day_events_dialog.dart';
-import 'package:flutter_ademin/demo/app/calendar/dialogs/edit_event_dialog.dart';
-import 'package:flutter_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/calendar/calendar_data.dart';
+import 'package:flutkit_ademin/demo/app/calendar/calendar_models.dart';
+import 'package:flutkit_ademin/demo/app/calendar/dialogs/add_event_dialog.dart';
+import 'package:flutkit_ademin/demo/app/calendar/dialogs/day_events_dialog.dart';
+import 'package:flutkit_ademin/demo/app/calendar/dialogs/edit_event_dialog.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
 import 'package:syncfusion_flutter_calendar/calendar.dart';
 
 class EventCalendar extends StatefulWidget {

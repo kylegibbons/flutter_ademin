@@ -1,14 +1,17 @@
+import 'dart:async';
 import 'dart:io';
 import 'package:desktop_drop/desktop_drop.dart';
 import 'package:dotted_border/dotted_border.dart';
-import 'package:file_picker/file_picker.dart';
+import 'package:file_selector/file_selector.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/form/form_basic_element.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/widgets/form/platform_file.dart';
+export 'package:flutkit_ademin/widgets/form/platform_file.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/form/form_basic_element.dart';
 import 'package:mime/mime.dart';
 import 'package:path/path.dart' as p;
 import 'dart:math' as math;
@@ -22,6 +25,20 @@ Future<int> _getFileLength(File file) async {
     // ignore errors and return 0
   }
   return 0;
+}
+
+Future<PlatformFile> _convertXFileToPlatformFile(XFile xFile) async {
+  final bytes = await xFile.readAsBytes();
+  final name = xFile.name;
+  final extension = p.extension(name).replaceFirst('.', '').toLowerCase();
+
+  return PlatformFile(
+    name: name,
+    size: bytes.length,
+    bytes: bytes,
+    path: kIsWeb ? null : xFile.path,
+    extension: extension,
+  );
 }
 
 // Drag and drop file upload widget
@@ -76,20 +93,21 @@ class _DragDropUploadState extends State<DragDropUpload> {
   }
 
   Future<void> _pickFile() async {
-    FilePickerResult? result = await FilePicker.pickFiles(allowMultiple: true);
+    final selectedFiles = await openFiles();
 
-    if (result != null) {
+    if (selectedFiles.isNotEmpty) {
       // Temporarily add files to validate
       final tempFileNames = List<String>.from(_droppedFilesNames);
       final tempWebFiles = List<Map<String, dynamic>>.from(_webDroppedFiles);
 
       if (kIsWeb) {
-        for (var file in result.files) {
-          tempWebFiles.add({'name': file.name, 'bytes': file.bytes!});
+        for (var file in selectedFiles) {
+          final bytes = await file.readAsBytes();
+          tempWebFiles.add({'name': file.name, 'bytes': bytes});
         }
       } else {
-        for (var file in result.files) {
-          tempFileNames.add(file.path ?? file.name);
+        for (var file in selectedFiles) {
+          tempFileNames.add(file.path);
         }
       }
 
@@ -137,31 +155,28 @@ class _DragDropUploadState extends State<DragDropUpload> {
               _dragging = false;
             });
           },
-          onDragDone: (details) async {
-            if (details.files.isEmpty) return;
+          onDragDone: (detail) async {
+            final selectedFiles = await Future.wait(
+              detail.files.map(_convertXFileToPlatformFile),
+            );
+            final files = selectedFiles.toList();
+            if (files.isEmpty) return;
 
-            // Collect all files first
             final tempFileNames = List<String>.from(_droppedFilesNames);
             final tempWebFiles = List<Map<String, dynamic>>.from(
               _webDroppedFiles,
             );
 
             if (kIsWeb) {
-              // For web, read all bytes asynchronously
-              final futures = details.files.map((file) async {
-                final bytes = await file.readAsBytes();
-                return {'name': file.name, 'bytes': bytes};
-              });
-              final results = await Future.wait(futures);
-              tempWebFiles.addAll(results);
+              for (var file in files) {
+                tempWebFiles.add({'name': file.name, 'bytes': file.bytes});
+              }
             } else {
-              // For desktop, add file names
-              for (var file in details.files) {
-                tempFileNames.add(file.path);
+              for (var file in files) {
+                tempFileNames.add(file.path ?? file.name);
               }
             }
 
-            // Validate the combined list
             final validationError = widget.validator?.call(
               tempFileNames,
               tempWebFiles,
@@ -170,7 +185,6 @@ class _DragDropUploadState extends State<DragDropUpload> {
             setState(() {
               _dragging = false;
               if (validationError == null) {
-                // Validation passed, add files
                 if (kIsWeb) {
                   _webDroppedFiles.addAll(
                     tempWebFiles.sublist(_webDroppedFiles.length),
@@ -187,6 +201,7 @@ class _DragDropUploadState extends State<DragDropUpload> {
               _error = validationError;
             });
           },
+
           child: MouseRegion(
             cursor: SystemMouseCursors.click,
             child: GestureDetector(
@@ -384,11 +399,18 @@ class FileUploadForm extends FormField<List<PlatformFile>> {
              if (!enabled) return;
 
              try {
-               FilePickerResult? result = await FilePicker.pickFiles(
-                 allowMultiple: allowMultiple,
-               );
-               if (result != null) {
-                 final files = result.files;
+               final List<XFile> selectedFiles;
+               if (allowMultiple) {
+                 selectedFiles = await openFiles();
+               } else {
+                 final file = await openFile();
+                 selectedFiles = file == null ? <XFile>[] : [file];
+               }
+
+               if (selectedFiles.isNotEmpty) {
+                 final files = await Future.wait(
+                   selectedFiles.map(_convertXFileToPlatformFile),
+                 );
                  state.didChange(files);
                  onFilesSelected?.call(files);
                }
@@ -578,7 +600,7 @@ class FileUploadForm extends FormField<List<PlatformFile>> {
        );
 }
 
-// MultifileUploader with image perview
+// MultifileUploader with image preview
 
 class UploadPreview extends StatefulWidget {
   const UploadPreview({
@@ -616,7 +638,26 @@ class _UploadPreviewState extends State<UploadPreview> {
   // Store both file names and bytes for web
   final List<Map<String, dynamic>> _webDroppedFiles = [];
   final List<String> _droppedFilesNames = [];
+  final List<PlatformFile> _droppedPlatformFiles = [];
   String? _error;
+
+  void _removeDroppedFile(String file) {
+    _droppedFilesNames.remove(file);
+    _droppedPlatformFiles.removeWhere(
+      (pf) =>
+          pf.path == file || p.basename(pf.path ?? pf.name) == p.basename(file),
+    );
+  }
+
+  PlatformFile? _findDroppedPlatformFile(String file) {
+    for (final pf in _droppedPlatformFiles) {
+      if (pf.path == file ||
+          p.basename(pf.path ?? pf.name) == p.basename(file)) {
+        return pf;
+      }
+    }
+    return null;
+  }
 
   @override
   void initState() {
@@ -640,20 +681,24 @@ class _UploadPreviewState extends State<UploadPreview> {
   }
 
   Future<void> _pickFile() async {
-    FilePickerResult? result = await FilePicker.pickFiles(allowMultiple: true);
+    final selectedFiles = await openFiles();
 
-    if (result != null) {
+    if (selectedFiles.isNotEmpty) {
       // Temporarily add files to validate
       final tempFileNames = List<String>.from(_droppedFilesNames);
       final tempWebFiles = List<Map<String, dynamic>>.from(_webDroppedFiles);
+      final tempDroppedPlatformFiles = <PlatformFile>[];
 
       if (kIsWeb) {
-        for (var file in result.files) {
-          tempWebFiles.add({'name': file.name, 'bytes': file.bytes!});
+        for (var file in selectedFiles) {
+          final bytes = await file.readAsBytes();
+          tempWebFiles.add({'name': file.name, 'bytes': bytes});
         }
       } else {
-        for (var file in result.files) {
-          tempFileNames.add(file.path ?? file.name);
+        for (var file in selectedFiles) {
+          final platformFile = await _convertXFileToPlatformFile(file);
+          tempFileNames.add(platformFile.path ?? platformFile.name);
+          tempDroppedPlatformFiles.add(platformFile);
         }
       }
 
@@ -673,6 +718,7 @@ class _UploadPreviewState extends State<UploadPreview> {
             _droppedFilesNames.addAll(
               tempFileNames.sublist(_droppedFilesNames.length),
             );
+            _droppedPlatformFiles.addAll(tempDroppedPlatformFiles);
           }
         }
         _error = validationError;
@@ -720,31 +766,33 @@ class _UploadPreviewState extends State<UploadPreview> {
                       _dragging = false;
                     });
                   },
-                  onDragDone: (details) async {
-                    if (details.files.isEmpty) return;
+                  onDragDone: (detail) async {
+                    final selectedFiles = await Future.wait(
+                      detail.files.map(_convertXFileToPlatformFile),
+                    );
+                    final files = selectedFiles.toList();
+                    if (files.isEmpty) return;
 
-                    // Collect all files first
                     final tempFileNames = List<String>.from(_droppedFilesNames);
                     final tempWebFiles = List<Map<String, dynamic>>.from(
                       _webDroppedFiles,
                     );
+                    final tempDroppedPlatformFiles = <PlatformFile>[];
 
                     if (kIsWeb) {
-                      // For web, read all bytes asynchronously
-                      final futures = details.files.map((file) async {
-                        final bytes = await file.readAsBytes();
-                        return {'name': file.name, 'bytes': bytes};
-                      });
-                      final results = await Future.wait(futures);
-                      tempWebFiles.addAll(results);
+                      for (var file in files) {
+                        tempWebFiles.add({
+                          'name': file.name,
+                          'bytes': file.bytes,
+                        });
+                      }
                     } else {
-                      // For desktop, add file paths when available
-                      for (var file in details.files) {
-                        tempFileNames.add(file.path);
+                      for (var file in files) {
+                        tempFileNames.add(file.path ?? file.name);
+                        tempDroppedPlatformFiles.add(file);
                       }
                     }
 
-                    // Validate the combined list
                     final validationError = widget.validator?.call(
                       tempFileNames,
                       tempWebFiles,
@@ -753,7 +801,6 @@ class _UploadPreviewState extends State<UploadPreview> {
                     setState(() {
                       _dragging = false;
                       if (validationError == null) {
-                        // Validation passed, add files
                         if (kIsWeb) {
                           _webDroppedFiles.addAll(
                             tempWebFiles.sublist(_webDroppedFiles.length),
@@ -761,6 +808,9 @@ class _UploadPreviewState extends State<UploadPreview> {
                         } else {
                           _droppedFilesNames.addAll(
                             tempFileNames.sublist(_droppedFilesNames.length),
+                          );
+                          _droppedPlatformFiles.addAll(
+                            tempDroppedPlatformFiles,
                           );
                         }
                         if (widget.onFilesChanged != null) {
@@ -840,6 +890,11 @@ class _UploadPreviewState extends State<UploadPreview> {
                                 final fileSizeStr = snapshot.hasData
                                     ? formatBytes(snapshot.data!)
                                     : '';
+                                final previewFile = _findDroppedPlatformFile(
+                                  file,
+                                );
+                                final useMemoryPreview =
+                                    previewFile?.bytes != null;
                                 return isImage
                                     ? Padding(
                                         padding: const EdgeInsets.only(
@@ -853,20 +908,35 @@ class _UploadPreviewState extends State<UploadPreview> {
                                                   BorderRadius.circular(
                                                     defaultRadius,
                                                   ),
-                                              child: Image.file(
-                                                fileObj,
-                                                fit: BoxFit.cover,
-                                                width: double.infinity,
-                                                errorBuilder:
-                                                    (
-                                                      context,
-                                                      error,
-                                                      stackTrace,
-                                                    ) => Icon(
-                                                      Icons.broken_image,
-                                                      color: kErrorColor,
+                                              child: useMemoryPreview
+                                                  ? Image.memory(
+                                                      previewFile!.bytes!,
+                                                      fit: BoxFit.cover,
+                                                      width: double.infinity,
+                                                      errorBuilder:
+                                                          (
+                                                            context,
+                                                            error,
+                                                            stackTrace,
+                                                          ) => Icon(
+                                                            Icons.broken_image,
+                                                            color: kErrorColor,
+                                                          ),
+                                                    )
+                                                  : Image.file(
+                                                      fileObj,
+                                                      fit: BoxFit.cover,
+                                                      width: double.infinity,
+                                                      errorBuilder:
+                                                          (
+                                                            context,
+                                                            error,
+                                                            stackTrace,
+                                                          ) => Icon(
+                                                            Icons.broken_image,
+                                                            color: kErrorColor,
+                                                          ),
                                                     ),
-                                              ),
                                             ),
                                             Container(
                                               padding: const EdgeInsets.all(
@@ -878,10 +948,10 @@ class _UploadPreviewState extends State<UploadPreview> {
                                                   end: Alignment.bottomCenter,
                                                   colors: [
                                                     Colors.black.withValues(
-                                                      alpha: 0.15,
+                                                      alpha: 0.6,
                                                     ),
                                                     Colors.black.withValues(
-                                                      alpha: 0.06,
+                                                      alpha: 0.3,
                                                     ),
                                                     Colors.transparent,
                                                   ],
@@ -900,8 +970,9 @@ class _UploadPreviewState extends State<UploadPreview> {
                                                         .withValues(alpha: 0.4),
                                                     onTap: () {
                                                       setState(() {
-                                                        _droppedFilesNames
-                                                            .remove(file);
+                                                        _removeDroppedFile(
+                                                          file,
+                                                        );
                                                       });
                                                     },
                                                   ),
@@ -971,9 +1042,7 @@ class _UploadPreviewState extends State<UploadPreview> {
                                                   .withValues(alpha: 0.4),
                                               onTap: () {
                                                 setState(() {
-                                                  _droppedFilesNames.remove(
-                                                    file,
-                                                  );
+                                                  _removeDroppedFile(file);
                                                 });
                                               },
                                             ),
@@ -1053,20 +1122,17 @@ class _UploadPreviewState extends State<UploadPreview> {
                                           ),
                                           decoration: BoxDecoration(
                                             gradient: LinearGradient(
-                                              colors: [
-                                                Colors.black54,
-                                                Colors.transparent,
-                                              ],
                                               begin: Alignment.topCenter,
                                               end: Alignment.bottomCenter,
-                                            ),
-                                            borderRadius: BorderRadius.only(
-                                              topLeft: Radius.circular(
-                                                defaultRadius,
-                                              ),
-                                              topRight: Radius.circular(
-                                                defaultRadius,
-                                              ),
+                                              colors: [
+                                                Colors.black.withValues(
+                                                  alpha: 0.6,
+                                                ),
+                                                Colors.black.withValues(
+                                                  alpha: 0.3,
+                                                ),
+                                                Colors.transparent,
+                                              ],
                                             ),
                                           ),
                                           child: Row(
@@ -1240,15 +1306,21 @@ class _AvatarUploadState extends State<AvatarUpload> {
   }
 
   Future<void> _pickFile() async {
-    final result = await FilePicker.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: widget.allowedExtensions,
-      withData: true,
-    );
+    final acceptedTypeGroups = <XTypeGroup>[];
+    if (widget.allowedExtensions.isNotEmpty) {
+      acceptedTypeGroups.add(
+        XTypeGroup(
+          label: 'Allowed files',
+          extensions: widget.allowedExtensions,
+        ),
+      );
+    }
 
-    if (result != null && result.files.isNotEmpty) {
-      final file = result.files.first;
-      _validateAndSetFile(file);
+    final file = await openFile(acceptedTypeGroups: acceptedTypeGroups);
+
+    if (file != null) {
+      final platformFile = await _convertXFileToPlatformFile(file);
+      _validateAndSetFile(platformFile);
     }
   }
 
@@ -1367,21 +1439,17 @@ class _AvatarUploadState extends State<AvatarUpload> {
   @override
   Widget build(BuildContext context) {
     final dropTarget = DropTarget(
+      onDragEntered: (details) => setState(() => _isDragging = true),
+      onDragExited: (details) => setState(() => _isDragging = false),
       onDragDone: (detail) async {
-        if (detail.files.isNotEmpty) {
-          final dropped = detail.files.first;
-          final bytes = await dropped.readAsBytes();
-          final file = PlatformFile(
-            name: dropped.name,
-            size: bytes.length,
-            bytes: bytes,
-            path: dropped.path,
-          );
-          _validateAndSetFile(file);
-        }
+        final selectedFiles = await Future.wait(
+          detail.files.map(_convertXFileToPlatformFile),
+        );
+        final files = selectedFiles.toList();
+        if (files.isEmpty) return;
+
+        _validateAndSetFile(files.first);
       },
-      onDragEntered: (_) => setState(() => _isDragging = true),
-      onDragExited: (_) => setState(() => _isDragging = false),
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
@@ -1462,15 +1530,21 @@ class _AvatarUploadDottedState extends State<AvatarUploadDotted> {
   }
 
   Future<void> _pickFile() async {
-    final result = await FilePicker.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: widget.allowedExtensions,
-      withData: true,
-    );
+    final acceptedTypeGroups = <XTypeGroup>[];
+    if (widget.allowedExtensions.isNotEmpty) {
+      acceptedTypeGroups.add(
+        XTypeGroup(
+          label: 'Allowed files',
+          extensions: widget.allowedExtensions,
+        ),
+      );
+    }
 
-    if (result != null && result.files.isNotEmpty) {
-      final file = result.files.first;
-      _validateAndSetFile(file);
+    final file = await openFile(acceptedTypeGroups: acceptedTypeGroups);
+
+    if (file != null) {
+      final platformFile = await _convertXFileToPlatformFile(file);
+      _validateAndSetFile(platformFile);
     }
   }
 
@@ -1587,21 +1661,17 @@ class _AvatarUploadDottedState extends State<AvatarUploadDotted> {
   @override
   Widget build(BuildContext context) {
     final dropTarget = DropTarget(
+      onDragEntered: (details) => setState(() => _isDragging = true),
+      onDragExited: (details) => setState(() => _isDragging = false),
       onDragDone: (detail) async {
-        if (detail.files.isNotEmpty) {
-          final dropped = detail.files.first;
-          final bytes = await dropped.readAsBytes();
-          final file = PlatformFile(
-            name: dropped.name,
-            size: bytes.length,
-            bytes: bytes,
-            path: dropped.path,
-          );
-          _validateAndSetFile(file);
-        }
+        final selectedFiles = await Future.wait(
+          detail.files.map(_convertXFileToPlatformFile),
+        );
+        final files = selectedFiles.toList();
+        if (files.isEmpty) return;
+
+        _validateAndSetFile(files.first);
       },
-      onDragEntered: (_) => setState(() => _isDragging = true),
-      onDragExited: (_) => setState(() => _isDragging = false),
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         child: GestureDetector(

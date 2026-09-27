@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/dashboard/analytics/dashboard_analytics_data.dart';
-import 'package:flutter_ademin/demo/dashboard/analytics/widgets/popup_menu_button.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/helper/card_header.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/dashboard/analytics/data/dashboard_analytics_data.dart';
+import 'package:flutkit_ademin/demo/dashboard/analytics/widgets/popup_menu_button.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/helper/card_header.dart';
 
 class TopPagesTable extends StatelessWidget {
   const TopPagesTable({super.key});
@@ -38,13 +38,14 @@ class TopPagesTable extends StatelessWidget {
                     flex: 5,
                     child: Text('Active Page', style: textStyleHeader),
                   ),
+
                   Expanded(
-                    flex: 1,
-                    child: Text('Active', style: textStyleHeader),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Text('Users', style: textStyleHeader),
+                    flex: 2,
+                    child: Text(
+                      'Active Users',
+                      style: textStyleHeader,
+                      overflow: TextOverflow.ellipsis,
+                    ),
                   ),
                 ],
               ),

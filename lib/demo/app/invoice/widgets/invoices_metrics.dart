@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/animation/animation.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/animation/animation.dart';
 
 class InvoiceMetrics extends StatelessWidget {
   const InvoiceMetrics({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return AdaptiveWrap(
+    return ResponsiveWrap(
       columnRatios: [1 / 4, 1 / 4, 1 / 4, 1 / 4],
       spacing: kDefaultPadding,
       runSpacing: kDefaultPadding,

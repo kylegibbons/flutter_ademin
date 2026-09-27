@@ -1,4 +1,4 @@
-import 'package:flutter_ademin/demo/page/settings/settings_models.dart';
+import 'package:flutkit_ademin/demo/page/settings/settings_models.dart';
 
 final user = UserProfile(
   name: "Umar Hamzah",

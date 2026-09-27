@@ -2,11 +2,11 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/dashboard/nft/dashboard_nft_data.dart';
-import 'package:flutter_ademin/demo/dashboard/nft/dashboard_nft_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/dashboard/nft/data/dashboard_nft_data.dart';
+import 'package:flutkit_ademin/demo/dashboard/nft/dashboard_nft_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
 
 class TrendingNFTSlider extends StatefulWidget {
   const TrendingNFTSlider({super.key});

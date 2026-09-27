@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // Enum for button size
@@ -803,6 +803,7 @@ class CustomOutlinedButton extends StatelessWidget {
       height: config.buttonHeight,
       child: OutlinedButton(
         onPressed: onPressed,
+
         style: ButtonStyle(
           side: WidgetStateProperty.resolveWith<BorderSide?>((
             Set<WidgetState> states,

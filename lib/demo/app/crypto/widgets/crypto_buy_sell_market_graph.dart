@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/crypto/crypto_data.dart';
-import 'package:flutter_ademin/demo/app/crypto/crypto_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/crypto/crypto_data.dart';
+import 'package:flutkit_ademin/demo/app/crypto/crypto_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -60,7 +60,7 @@ class _MarketGraphState extends State<MarketGraph> {
                 horizontal: 2 * kDefaultPadding,
                 vertical: 2 * kDefaultPadding,
               ),
-              child: AdaptiveWrap(
+              child: ResponsiveWrap(
                 useScreenWidth: false,
                 breakpoints: {
                   kScreenWidthSm: 1, // set breakpoint for 1 column layout,

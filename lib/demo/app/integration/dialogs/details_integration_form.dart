@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/integration/integration_models.dart';
-import 'package:flutter_ademin/widgets/form/form_basic_element.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/integration/integration_models.dart';
+import 'package:flutkit_ademin/widgets/form/form_basic_element.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 
 // Details Integration Form

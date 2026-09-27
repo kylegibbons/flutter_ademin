@@ -1,5 +1,5 @@
-import 'package:flutter_ademin/demo/page/profile/profile_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/demo/page/profile/profile_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
 
 // tech stacks data
 

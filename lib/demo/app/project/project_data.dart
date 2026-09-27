@@ -1,5 +1,5 @@
 // mock up data of Project
-import 'package:flutter_ademin/demo/app/project/project_models.dart';
+import 'package:flutkit_ademin/demo/app/project/project_models.dart';
 
 final List<Project> projects = [
   Project(

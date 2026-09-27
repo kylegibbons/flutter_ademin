@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_ademin/widgets/helper/html_render.dart';
+import 'package:flutkit_ademin/widgets/helper/html_render.dart';
 
 //Widget for showing card description.
 

@@ -1,11 +1,13 @@
 // Appearance Settings
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/providers/app_preferences_provider.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/top_nav_bar/language_selector.dart';
-import 'package:flutter_ademin/widgets/top_nav_bar/theme_selector.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/providers/app_preferences_provider.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/form/form_checkbox_radio.dart';
+import 'package:flutkit_ademin/widgets/top_nav_bar/language_selector.dart';
+import 'package:flutkit_ademin/widgets/top_nav_bar/theme_selector.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class AppearanceSettings extends ConsumerWidget {
@@ -103,7 +105,7 @@ class AppearanceSettings extends ConsumerWidget {
 
           const SizedBox(height: kDefaultPadding),
 
-          AdaptiveWrap(
+          ResponsiveWrap(
             breakpoints: {
               kScreenWidthMd / 2: 1,
               kScreenWidthLg: 2,
@@ -182,6 +184,41 @@ class AppearanceSettings extends ConsumerWidget {
 
           const SizedBox(height: 2 * kDefaultPadding),
 
+          // sidebar style
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // language
+                  Text(
+                    'Use lighter sidebar background',
+                    style: TextStyle(
+                      // fontSize: kBodyLarge,
+                      color: themeData.colorScheme.onSurface,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+
+                  Text(
+                    'Use the surface color for sidebar background instead of the drawer accent color.',
+                    style: TextStyle(color: themeData.colorScheme.onSurface),
+                  ),
+                ],
+              ),
+              CustomSwitch(
+                activeColor: kSecondaryColor,
+                value: preferences.useLightSidebar,
+                onChanged: (value) =>
+                    controller.setUseLightSidebarAsync(useLightSidebar: value),
+              ),
+            ],
+          ),
+
+          const SizedBox(height: 2 * kDefaultPadding),
+
           // language
           Text(
             'Language',
@@ -255,13 +292,11 @@ class _ChoiceChipTile extends StatelessWidget {
         height: mediumHeight,
         decoration: BoxDecoration(
           color: selected
-              ? themeData.colorScheme.primary.withValues(alpha: 0.12)
+              ? kSecondaryColor.withValues(alpha: 0.12)
               : themeData.colorScheme.surface,
           borderRadius: BorderRadius.circular(999),
           border: Border.all(
-            color: selected
-                ? themeData.colorScheme.primary
-                : themeData.colorScheme.outline,
+            color: selected ? kSecondaryColor : themeData.colorScheme.outline,
           ),
         ),
         child: Row(
@@ -271,7 +306,7 @@ class _ChoiceChipTile extends StatelessWidget {
               icon,
               size: 18,
               color: selected
-                  ? themeData.colorScheme.primary
+                  ? kSecondaryColor
                   : themeData.colorScheme.onSurface,
             ),
             const SizedBox(width: kDefaultPadding / 2),
@@ -280,7 +315,7 @@ class _ChoiceChipTile extends StatelessWidget {
               style: TextStyle(
                 fontWeight: selected ? FontWeight.w600 : FontWeight.w500,
                 color: selected
-                    ? themeData.colorScheme.primary
+                    ? kSecondaryColor
                     : themeData.colorScheme.onSurface,
               ),
             ),

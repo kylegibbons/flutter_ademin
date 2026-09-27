@@ -8,9 +8,7 @@ class AppSidebarTheme extends ThemeExtension<AppSidebarTheme> {
   final double sidebarTopPadding;
   final double sidebarRightPadding;
   final double sidebarBottomPadding;
-  final double headerUserProfileRadius;
-  final double headerUsernameFontSize;
-  final double headerTextButtonFontSize;
+
   final double menuFontSize;
   final double menuBorderRadius;
   final double menuLeftPadding;
@@ -35,9 +33,7 @@ class AppSidebarTheme extends ThemeExtension<AppSidebarTheme> {
     required this.sidebarTopPadding,
     required this.sidebarRightPadding,
     required this.sidebarBottomPadding,
-    required this.headerUserProfileRadius,
-    required this.headerUsernameFontSize,
-    required this.headerTextButtonFontSize,
+
     required this.menuFontSize,
     required this.menuBorderRadius,
     required this.menuLeftPadding,
@@ -91,12 +87,7 @@ class AppSidebarTheme extends ThemeExtension<AppSidebarTheme> {
       sidebarTopPadding: sidebarTopPadding ?? this.sidebarTopPadding,
       sidebarRightPadding: sidebarRightPadding ?? this.sidebarRightPadding,
       sidebarBottomPadding: sidebarBottomPadding ?? this.sidebarBottomPadding,
-      headerUserProfileRadius:
-          headerUserProfileRadius ?? this.headerUserProfileRadius,
-      headerUsernameFontSize:
-          headerUsernameFontSize ?? this.headerUsernameFontSize,
-      headerTextButtonFontSize:
-          headerTextButtonFontSize ?? this.headerTextButtonFontSize,
+
       menuFontSize: menuFontSize ?? this.menuFontSize,
       menuBorderRadius: menuBorderRadius ?? this.menuBorderRadius,
       menuLeftPadding: menuBorderRadius ?? this.menuLeftPadding,
@@ -140,9 +131,7 @@ class AppSidebarTheme extends ThemeExtension<AppSidebarTheme> {
       sidebarTopPadding: other.sidebarTopPadding,
       sidebarRightPadding: other.sidebarRightPadding,
       sidebarBottomPadding: other.sidebarBottomPadding,
-      headerUserProfileRadius: other.headerUserProfileRadius,
-      headerUsernameFontSize: other.headerUsernameFontSize,
-      headerTextButtonFontSize: other.headerTextButtonFontSize,
+
       menuFontSize: other.menuFontSize,
       menuBorderRadius: other.menuBorderRadius,
       menuLeftPadding: other.menuLeftPadding,

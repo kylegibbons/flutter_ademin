@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/form/form_checkbox_radio.dart';
-import 'package:flutter_ademin/widgets/helper/card_description.dart';
-import 'package:flutter_ademin/widgets/helper/card_header.dart';
-import 'package:flutter_ademin/widgets/helper/show_code_card.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/form/form_checkbox_radio.dart';
+import 'package:flutkit_ademin/widgets/helper/card_description.dart';
+import 'package:flutkit_ademin/widgets/helper/card_header.dart';
+import 'package:flutkit_ademin/widgets/helper/show_code_card.dart';
 import 'package:flutter_syntax_view/flutter_syntax_view.dart';
 
 class ShowCodeContainer extends StatefulWidget {

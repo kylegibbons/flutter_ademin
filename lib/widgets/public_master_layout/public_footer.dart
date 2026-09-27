@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/configs/footer_config.dart';
+import 'package:flutkit_ademin/configs/footer_config.dart';
 
 class PublicFooter extends StatelessWidget {
   final Color textColor;

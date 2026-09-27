@@ -2,8 +2,8 @@
 // use as default icon button in top navigation bar
 
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
 
 class TopNavButton extends StatelessWidget {
   const TopNavButton({

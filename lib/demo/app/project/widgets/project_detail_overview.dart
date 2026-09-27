@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/project/project_models.dart';
-import 'package:flutter_ademin/demo/app/project/widgets/project_detail_attachment_overview.dart';
-import 'package:flutter_ademin/demo/app/project/widgets/project_detail_task_overview.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/badge.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/helper/card_header.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/project/project_models.dart';
+import 'package:flutkit_ademin/demo/app/project/widgets/project_detail_attachment_overview.dart';
+import 'package:flutkit_ademin/demo/app/project/widgets/project_detail_task_overview.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/badge.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/helper/card_header.dart';
 import 'package:intl/intl.dart';
 
 class ProjectDetailOverview extends StatelessWidget {

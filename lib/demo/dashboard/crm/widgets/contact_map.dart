@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/dashboard/crm/dashboard_crm_data.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/helper/card_header.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/dashboard/crm/data/dashboard_crm_data.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/helper/card_header.dart';
 import 'package:syncfusion_flutter_maps/maps.dart';
 
 class ContactMap extends StatelessWidget {
@@ -18,7 +18,7 @@ class ContactMap extends StatelessWidget {
         child: Column(
           children: [
             CardHeader(
-              kText: 'Contacts Distribution Accross Provinces',
+              kText: 'Contacts Distribution',
               kWidget: Padding(
                 padding: const EdgeInsetsDirectional.only(end: kDefaultPadding),
                 child: SoftButton(

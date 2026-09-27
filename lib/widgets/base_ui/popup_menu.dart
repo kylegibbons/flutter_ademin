@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
 
 /// Data model untuk custom item popup menu
 class PopupMenuItemData<T> {

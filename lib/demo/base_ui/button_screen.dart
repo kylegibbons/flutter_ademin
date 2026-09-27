@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/base_ui/popup_menu.dart';
-import 'package:flutter_ademin/widgets/helper/card_description.dart';
-import 'package:flutter_ademin/widgets/helper/page_title.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/breadcrumb.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_footer.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_master_layout.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
-import 'package:flutter_ademin/widgets/helper/show_code_card.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/base_ui/popup_menu.dart';
+import 'package:flutkit_ademin/widgets/helper/card_description.dart';
+import 'package:flutkit_ademin/widgets/helper/page_title.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/breadcrumb.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_footer.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_master_layout.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/widgets/helper/show_code_card.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ButtonScreen extends StatefulWidget {
@@ -5685,7 +5685,7 @@ CustomIconButton(
                 ShowCodeCard(
                   cardTitle: 'Custom Popup Menu',
                   description:
-                      'Use <code>CustomPopupMenu</code> to set a custom pop up menu.',
+                      'Use <code>CustomPopupMenu()</code> to set a custom pop up menu.',
                   uiView: Wrap(
                     spacing: kDefaultPadding,
                     runSpacing: kDefaultPadding,

@@ -1,7 +1,7 @@
 // 2. Mockup Data
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/demo/app/support_ticket/ticket_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/demo/app/support_ticket/ticket_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
 List<TicketOverview> mockTicketOverviewData = [

@@ -1,5 +1,55 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+
+// icon badge
+
+class IconBadge extends StatelessWidget {
+  const IconBadge({
+    super.key,
+    required this.icon,
+    required this.label,
+    required this.color,
+    this.radius = defaultRadius,
+    this.iconSize = 16,
+    this.padding = const EdgeInsets.symmetric(
+      horizontal: kDefaultPadding / 2,
+      vertical: 6,
+    ),
+  });
+
+  final IconData icon;
+  final String label;
+  final Color color;
+  final double radius;
+  final double iconSize;
+  final EdgeInsetsGeometry padding;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: padding,
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: .10),
+        borderRadius: BorderRadius.circular(radius),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(icon, size: iconSize, color: color),
+          const SizedBox(width: kDefaultPadding / 4),
+          Text(
+            label,
+            style: TextStyle(
+              color: color,
+              fontWeight: FontWeight.w600,
+              fontSize: kBodySmall,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
 // custom badge widget
 
@@ -104,7 +154,7 @@ class _CustomBadgeState extends State<CustomBadge> {
                 color: widget.isSoft || widget.isOutlined
                     ? widget.kColor
                     : Colors.white,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.w600,
                 fontSize: widget.kFontSize,
                 height: 1.0,
                 leadingDistribution: TextLeadingDistribution.even,

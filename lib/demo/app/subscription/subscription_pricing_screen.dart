@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/subscription/widgets/annual_plan_view.dart';
-import 'package:flutter_ademin/demo/app/subscription/widgets/monthly_plan_view.dart';
-import 'package:flutter_ademin/demo/app/subscription/widgets/pricing_tab_selector.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/widgets/helper/page_title.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/breadcrumb.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/page_header.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_footer.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_master_layout.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/subscription/widgets/annual_plan_view.dart';
+import 'package:flutkit_ademin/demo/app/subscription/widgets/monthly_plan_view.dart';
+import 'package:flutkit_ademin/demo/app/subscription/widgets/pricing_tab_selector.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/widgets/helper/page_title.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/breadcrumb.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/page_header.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_footer.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_master_layout.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
 
 class PricingScreen extends StatefulWidget {
   const PricingScreen({super.key});

@@ -1,4 +1,4 @@
-import 'package:flutter_ademin/demo/app/integration/integration_models.dart';
+import 'package:flutkit_ademin/demo/app/integration/integration_models.dart';
 
 // Mockup data
 

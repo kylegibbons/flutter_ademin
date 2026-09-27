@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/widgets/sidebar/buy_button.dart';
+import 'package:flutkit_ademin/widgets/sidebar/buy_button.dart';
 
 // sidebar footer config
 // these widgets will be place below sidebar menu.

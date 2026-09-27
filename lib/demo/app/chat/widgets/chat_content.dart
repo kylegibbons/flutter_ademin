@@ -1,10 +1,10 @@
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/chat/chat_data.dart';
-import 'package:flutter_ademin/demo/app/chat/chat_model.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/chat/chat_data.dart';
+import 'package:flutkit_ademin/demo/app/chat/chat_model.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
 
 class ChatContentScreen extends StatefulWidget {
   final ChatSelection chatSelection;

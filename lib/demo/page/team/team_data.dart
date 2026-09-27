@@ -1,4 +1,4 @@
-import 'package:flutter_ademin/demo/page/team/team_models.dart';
+import 'package:flutkit_ademin/demo/page/team/team_models.dart';
 
 List<UserProfile> dummyProfiles = [
   UserProfile(

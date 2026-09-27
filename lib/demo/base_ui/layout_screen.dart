@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/app_router.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/generated/l10n.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/helper/page_title.dart';
-import 'package:flutter_ademin/widgets/helper/show_code_container.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/breadcrumb.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_footer.dart';
-import 'package:flutter_ademin/widgets/portal_master_layout/portal_master_layout.dart';
-import 'package:flutter_ademin/configs/global_config.dart';
+import 'package:flutkit_ademin/app_router.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/generated/l10n.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/helper/page_title.dart';
+import 'package:flutkit_ademin/widgets/helper/show_code_container.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/breadcrumb.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_footer.dart';
+import 'package:flutkit_ademin/widgets/portal_master_layout/portal_master_layout.dart';
+import 'package:flutkit_ademin/configs/global_config.dart';
 
 class LayoutScreen extends StatefulWidget {
   const LayoutScreen({super.key});
@@ -129,8 +129,8 @@ class _LayoutScreenState extends State<LayoutScreen> {
                 ShowCodeContainer(
                   title: '2 Columns Demo (70% - 30%)',
                   description:
-                      'Use <code>AdaptiveWrap()</code> to set an adaptive wrap layout, in this demo there are 2 columns, Column A (70% width) and Column B (30% width). Please resize your browser to see adaptive wrap in action.',
-                  uiView: AdaptiveWrap(
+                      'Use <code>ResponsiveWrap()</code> to set an responsive wrap layout, in this demo there are 2 columns, Column A (70% width) and Column B (30% width). Please resize your browser to see responsive wrap in action.',
+                  uiView: ResponsiveWrap(
                     breakpoints: {
                       576: 1,
                       // set breakpoint for 1 column layout, will be triggered when width constraint less than 576 px
@@ -149,7 +149,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
                     ],
                   ),
                   codeView: '''
-AdaptiveWrap(
+ResponsiveWrap(
   breakpoints: {
     576: 1, // set breakpoint for 1 column layout, will be triggered when width constraint less than 576 px
     768: 2, // set breakpoint for 2 column layout
@@ -176,8 +176,8 @@ AdaptiveWrap(
                 ShowCodeContainer(
                   title: '2 Columns Demo (70% - 30%) - ScreenWidth Breakpoint',
                   description:
-                      'Use <code>AdaptiveWrap()</code> to set an adaptive wrap layout, and <code>useScreenWidth: true</code> to use screen width as breakpoints.',
-                  uiView: AdaptiveWrap(
+                      'Use <code>ResponsiveWrap()</code> to set an responsive wrap layout, and <code>useScreenWidth: true</code> to use screen width as breakpoints.',
+                  uiView: ResponsiveWrap(
                     useScreenWidth: true, // use screen width (MediaQuery)
                     breakpoints: {
                       576: 1,
@@ -197,7 +197,7 @@ AdaptiveWrap(
                     ],
                   ),
                   codeView: '''
-AdaptiveWrap(
+ResponsiveWrap(
   useScreenWidth: true, // use screen width (MediaQuery)
   breakpoints: {
     576: 1, // set breakpoint for 1 column layout, will be triggered when width constraint less than 576 px
@@ -225,8 +225,8 @@ AdaptiveWrap(
                 ShowCodeContainer(
                   title: '3 Columns Demo (50% - 25% - 25%)',
                   description:
-                      'Use <code>AdaptiveWrap()</code> to set an adaptive wrap layout, in this demo there are 3 columns, Column A (50% width), Column B (25% width), and Column C (25% width). Please resize your browser to see adaptive wrap in action.',
-                  uiView: AdaptiveWrap(
+                      'Use <code>ResponsiveWrap()</code> to set an responsive wrap layout, in this demo there are 3 columns, Column A (50% width), Column B (25% width), and Column C (25% width). Please resize your browser to see responsive wrap in action.',
+                  uiView: ResponsiveWrap(
                     breakpoints: {
                       kScreenWidthSm: 1, // set breakpoint for 1 column layout,
                       kScreenWidthMd: 2, // set breakpoint for 2 column layout
@@ -247,7 +247,7 @@ AdaptiveWrap(
                     ],
                   ),
                   codeView: '''
-AdaptiveWrap(
+ResponsiveWrap(
   breakpoints: {
     kScreenWidthSm: 1, // set breakpoint for 1 column layout,
     kScreenWidthMd: 2, // set breakpoint for 2 column layout
@@ -285,8 +285,8 @@ const double kScreenWidthXxxl = 2000.0; */
                 ShowCodeContainer(
                   title: '4 Columns Demo (25% - 25% - 25% - 25%)',
                   description:
-                      'Use <code>AdaptiveWrap()</code> to set an adaptive wrap layout, in this demo there are 4 columns, Column A (25% width), Column B (25% width), Column C (25% width), and Column D (25% width). Please resize your browser to see adaptive wrap in action.',
-                  uiView: AdaptiveWrap(
+                      'Use <code>ResponsiveWrap()</code> to set an responsive wrap layout, in this demo there are 4 columns, Column A (25% width), Column B (25% width), Column C (25% width), and Column D (25% width). Please resize your browser to see responsive wrap in action.',
+                  uiView: ResponsiveWrap(
                     breakpoints: {
                       kScreenWidthSm: 1, // set breakpoint for 1 column layout,
                       kScreenWidthLg: 2, // set breakpoint for 2 column layout
@@ -309,7 +309,7 @@ const double kScreenWidthXxxl = 2000.0; */
                     ],
                   ),
                   codeView: '''
-AdaptiveWrap(
+ResponsiveWrap(
   breakpoints: {
     kScreenWidthSm: 1, // set breakpoint for 1 column layout,
     kScreenWidthLg: 2, // set breakpoint for 2 column layout
@@ -349,8 +349,8 @@ const double kScreenWidthXxxl = 2000.0; */
                 ShowCodeContainer(
                   title: 'Complex 3 Columns Demo (50% - 30% - 20%)',
                   description:
-                      'You can make <code>AdaptiveWrap()</code> a child of another <code>AdaptiveWrap()</code> to create complex responsive layouts. In this demo, Columns B and C are always in the same row. Please resize your browser to see adaptive wrap in action.',
-                  uiView: AdaptiveWrap(
+                      'You can make <code>ResponsiveWrap()</code> a child of another <code>ResponsiveWrap()</code> to create complex responsive layouts. In this demo, Columns B and C are always in the same row. Please resize your browser to see responsive wrap in action.',
+                  uiView: ResponsiveWrap(
                     breakpoints: {
                       kScreenWidthMd: 1, // set breakpoint for 1 column layout,
                       kScreenWidthLg: 2, // set breakpoint for 2 column layout
@@ -366,7 +366,7 @@ const double kScreenWidthXxxl = 2000.0; */
                       _demoCard('Column A', kSecondaryColor),
 
                       // Column B & C
-                      AdaptiveWrap(
+                      ResponsiveWrap(
                         breakpoints: {kScreenWidthSm: 2},
                         columnRatios: const [
                           0.3, // set column B as 30%
@@ -382,7 +382,7 @@ const double kScreenWidthXxxl = 2000.0; */
                     ],
                   ),
                   codeView: '''
-AdaptiveWrap(
+ResponsiveWrap(
   breakpoints: {
     kScreenWidthMd: 1, // set breakpoint for 1 column layout,
     kScreenWidthLg: 2, // set breakpoint for 2 column layout
@@ -398,7 +398,7 @@ AdaptiveWrap(
     _demoCard('Column A', kSecondaryColor),
 
     // Column B & C
-    AdaptiveWrap(
+    ResponsiveWrap(
       breakpoints: {
         kScreenWidthSm: 2,
       },

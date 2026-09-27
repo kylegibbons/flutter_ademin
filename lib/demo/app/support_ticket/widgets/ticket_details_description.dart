@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/documentation/widget/syntaxhighlighter.dart';
-import 'package:flutter_ademin/demo/app/support_ticket/ticket_data.dart';
-import 'package:flutter_ademin/demo/app/support_ticket/ticket_models.dart';
-import 'package:flutter_ademin/theme/themes.dart';
-import 'package:flutter_ademin/widgets/base_ui/button.dart';
-import 'package:flutter_ademin/widgets/base_ui/typography.dart';
-import 'package:flutter_ademin/widgets/helper/card_header.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/documentation/widget/syntaxhighlighter.dart';
+import 'package:flutkit_ademin/demo/app/support_ticket/ticket_data.dart';
+import 'package:flutkit_ademin/demo/app/support_ticket/ticket_models.dart';
+import 'package:flutkit_ademin/theme/themes.dart';
+import 'package:flutkit_ademin/widgets/base_ui/button.dart';
+import 'package:flutkit_ademin/widgets/base_ui/typography.dart';
+import 'package:flutkit_ademin/widgets/helper/card_header.dart';
 import 'package:flutter_markdown_plus/flutter_markdown_plus.dart';
 import 'package:intl/intl.dart';
 

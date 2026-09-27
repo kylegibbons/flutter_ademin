@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ademin/constants/dimens.dart';
-import 'package:flutter_ademin/demo/app/support_ticket/ticket_data.dart';
-import 'package:flutter_ademin/utils/responsive_helper.dart';
-import 'package:flutter_ademin/widgets/base_ui/metric_card.dart';
+import 'package:flutkit_ademin/constants/dimens.dart';
+import 'package:flutkit_ademin/demo/app/support_ticket/ticket_data.dart';
+import 'package:flutkit_ademin/utils/responsive_helper.dart';
+import 'package:flutkit_ademin/widgets/base_ui/metric_card.dart';
 
 class TicketMetrics extends StatelessWidget {
   const TicketMetrics({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return AdaptiveWrap(
+    return ResponsiveWrap(
       spacing: kDefaultPadding,
       runSpacing: kDefaultPadding,
       breakpoints: {kScreenWidthSm: 1, kScreenWidthLg: 2, kScreenWidthXl: 4},

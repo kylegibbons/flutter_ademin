@@ -1,6 +1,6 @@
 {
-    "name": "flutter_ademin",
-    "short_name": "flutter_ademin",
+    "name": "flutkit_ademin",
+    "short_name": "flutkit_ademin",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#ffffff",

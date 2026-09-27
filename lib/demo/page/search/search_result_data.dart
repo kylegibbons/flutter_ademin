@@ -1,4 +1,4 @@
-import 'package:flutter_ademin/demo/page/search/search_result_models.dart';
+import 'package:flutkit_ademin/demo/page/search/search_result_models.dart';
 
 // all search result mockup
 
