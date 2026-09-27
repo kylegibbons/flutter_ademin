@@ -1,8 +1,8 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=C:\dev\flutter"
-export "FLUTTER_APPLICATION_PATH=D:\Flutter\Project\flutter_ademin\third_party\flutter_gantt\example"
-export "FLUTTER_FRAMEWORK_SWIFT_PACKAGE_PATH=D:\Flutter\Project\flutter_ademin\third_party\flutter_gantt\example\macos\Flutter\ephemeral\Packages\.packages\FlutterFramework"
+export "FLUTTER_ROOT=/home/kgibbons/flutter/flutter"
+export "FLUTTER_APPLICATION_PATH=/home/kgibbons/Code/flutter_ademin-main/third_party/flutter_gantt/example"
+export "FLUTTER_FRAMEWORK_SWIFT_PACKAGE_PATH=/home/kgibbons/Code/flutter_ademin-main/third_party/flutter_gantt/example/macos/Flutter/ephemeral/Packages/.packages/FlutterFramework"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=0.0.0"
